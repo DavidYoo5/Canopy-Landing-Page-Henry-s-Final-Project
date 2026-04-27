@@ -1,17 +1,11 @@
 :root {
-  --background: #ffffff;
+  --background: #f7f9f2;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -22,13 +16,9 @@ body {
 
 body {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -42,8 +32,37 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body.dark-mode {
+  background: #081c15;
+  color: #fffbd3;
+}
+
+body.dark-mode main {
+  background: #081c15;
+  color: #fffbd3;
+}
+
+body.dark-mode span{
+  color: #fffbd3;
+}
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #fffbd3;
+}
+
+body.dark-mode nav {
+  background: #183b2f;
+}
+
+body.dark-mode footer {
+  background: #183b2f;
+}
+
+* {
+  transition: 
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
 }
