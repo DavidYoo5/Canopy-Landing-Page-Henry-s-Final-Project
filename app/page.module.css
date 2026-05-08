@@ -128,11 +128,10 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: none;
+  border: 2px solid transparent;
+  padding: 0;
 
   background: #fffbd3;
-  color: #004738;
-  font-size: 1.4rem;
   cursor: pointer;
 
   display: flex;
@@ -145,28 +144,47 @@
   animation: buttonFadeIn 0.8s ease forwards;
   animation-delay: 0.2s;
 
+  transform-origin: center;
+
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
+/* ICON */
+.darkToggle img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+
+  transition: transform 0.25s ease;
+}
+
+/* HOVER */
 .darkToggle:hover {
   transform: scale(1.2);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
 }
 
+/* ICON HOVER SCALE */
+.darkToggle:hover img {
+  transform: scale(1.15);
+}
+
+/* CLICK */
 .darkToggle:active {
   transform: scale(0.9) rotate(15deg);
 }
 
+/* DARK MODE */
 :global(body.dark-mode) .darkToggle {
   background: #183b2f;
-  color: #fffbd3;
-  border: 2px solid #fffbd3;
+  border-color: #fffbd3;
 }
 
+/* LOAD ANIMATION */
 @keyframes buttonFadeIn {
   to {
     opacity: 1;
@@ -328,6 +346,55 @@
 
 .carouselArrow:active {
   transform: scale(0.95);
+}
+
+/* =========================
+   CAROUSEL TIMER BAR
+========================= */
+.carouselProgress {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 28px;
+  height: 6px;
+  background: rgba(0, 71, 56, 0.18);
+  border-radius: 999px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.carouselProgressBar {
+  width: 100%;
+  height: 100%;
+  background: #004738;
+  border-radius: 999px;
+  transform-origin: left;
+  animation: carouselTimer 10s linear forwards;
+}
+
+.carouselProgressBar.paused {
+  animation-play-state: paused;
+}
+
+@keyframes carouselTimer {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================
+   CAROUSEL TIMER - DARK MODE
+========================= */
+:global(body.dark-mode) .carouselProgress {
+  background: rgba(255, 251, 211, 0.22);
+}
+
+:global(body.dark-mode) .carouselProgressBar {
+  background: #fffbd3;
 }
 
 /* =========================
