@@ -13,7 +13,11 @@ export default function DarkModeToggle() {
       type="button"
       aria-label="Toggle dark mode"
     >
-      {darkMode ? <img src="/Sun.svg" alt="Sun" style={{width:"25px"}} /> : <img src="/Moon.svg" alt="Moon" style={{width:"25px"}}/>}
+      {darkMode ? (
+        <img src="/LightModeIcon.svg" alt="Sun" style={{ width: "25px" }} />
+      ) : (
+        <img src="/DarkModeIcon.svg" alt="Moon" style={{ width: "25px" }} />
+      )}
     </button>
   );
 }
