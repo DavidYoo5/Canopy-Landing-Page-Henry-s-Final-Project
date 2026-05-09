@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import BackToTop from "./components/BackToTop";
 import DarkModeToggle from "./components/DarkModeToggle";
 import HeroCarousel from "./components/HeroCarousel";
+import InsightsSection from "./components/InsightsSection";
 
 export default function Home() {
   return (
@@ -88,7 +89,7 @@ export default function Home() {
         <section
           id="section-insight"
           className={styles.contentSection}
-        ></section>
+        > <InsightsSection /></section>
 
         <section
           id="section-grow-savings-tree"
