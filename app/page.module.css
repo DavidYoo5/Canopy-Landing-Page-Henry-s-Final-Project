@@ -563,3 +563,75 @@
   font-size: 0.8rem;
   color: var(--pine-teal);
 }
+
+/* =========================
+   INSIGHTS SECTION
+========================= */
+
+.insightsSection {
+  position: relative;
+  width: 100%;
+  padding: 80px 0;
+}
+
+.insightsNumber {
+  position: absolute;
+  top: 20px;
+  right: 0;
+
+  font-family: var(--font-dm-serif), serif;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+
+  color: #000000;
+  margin: 0;
+}
+
+.insightsLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.insightsTextCard {
+  background: var(--pine-teal);
+  color: var(--lemon-chiffon);
+  border-radius: 36px;
+  padding: 50px;
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.16);
+}
+
+.insightsTextCard h2 {
+  color: var(--lemon-chiffon);
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.insightsTextCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+.insightsInteractiveArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  background: #fffbd3;
+  border-radius: 36px;
+  padding: 40px;
+  min-height: 360px;
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+}
