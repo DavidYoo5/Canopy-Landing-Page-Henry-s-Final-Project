@@ -571,67 +571,252 @@
 .insightsSection {
   position: relative;
   width: 100%;
-  padding: 80px 0;
+  min-height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 
 .insightsNumber {
   position: absolute;
-  top: 20px;
-  right: 0;
-
+  top: 0;
+  right: 40px;
+  margin: 0;
   font-family: var(--font-dm-serif), serif;
-  font-size: 6rem;
+  font-size: 120px;
   font-weight: 700;
   line-height: 1;
-
-  color: #000000;
-  margin: 0;
+  color: black;
 }
 
 .insightsLayout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 100px;
 }
 
-.insightsTextCard {
-  background: var(--pine-teal);
-  color: var(--lemon-chiffon);
-  border-radius: 36px;
-  padding: 50px;
-  min-height: 360px;
+/* LEFT TEXT CARD */
 
+.insightsTextCard {
+  position: relative;
+  width: 546px;
+  height: 841px;
+  background: #e6f5a8;
+  border-radius: 50px;
+  padding: 90px 70px 70px 70px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  box-shadow: 0 12px 40px rgba(0, 71, 56, 0.08);
+}
 
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.16);
+.featureLabel {
+  position: absolute;
+  top: 55px;
+  left: 70px;
+  margin: 0;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #4d5c2f;
 }
 
 .insightsTextCard h2 {
-  color: var(--lemon-chiffon);
-  font-size: 3rem;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.02;
+  color: black;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  max-width: 320px;
 }
 
-.insightsTextCard p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 380px;
+.insightsDescription {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 36px;
+  line-height: 1.45;
+  color: black;
+  max-width: 360px;
 }
+
+/* RIGHT SIDE */
 
 .insightsInteractiveArea {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  transform: translate(100px, -150px);
 
-  background: #fffbd3;
-  border-radius: 36px;
-  padding: 40px;
-  min-height: 360px;
+}
 
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+/* =========================
+   CHART
+========================= */
+
+.insightChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartCircle {
+  position: relative;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #efc71d 0deg 60deg,
+    #ccea9d 60deg 120deg,
+    #8dab59 120deg 180deg,
+    #2e8d6f 180deg 240deg,
+    #004738 240deg 300deg,
+    #fffbd3 300deg 360deg
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CENTER CIRCLE */
+
+.chartCenter {
+  width: 210px;
+  height: 210px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.35s ease;
+}
+
+/* CENTER TEXT */
+
+.chartCenterContent {
+  text-align: center;
+  animation: dissolveIn 0.35s ease;
+}
+
+.chartCategory {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+}
+
+.chartPrice {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* =========================
+   ICONS INSIDE CHART
+========================= */
+
+.chartIconButton {
+  position: absolute;
+
+  background: none;
+  border: none;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+
+  transition: transform 0.2s ease;
+}
+
+.chartIconButton:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.chartIconButton:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.chartIcon {
+  display: block;
+
+  width: 34px;
+  height: 34px;
+
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* =========================
+   ICON POSITIONS
+========================= */
+
+/* FOOD - yellow */
+.chartIcon0 {
+  left: 290px;
+  top: 80px;
+}
+
+/* DRINK - light green */
+.chartIcon1 {
+  left: 360px;
+  top: 210px;
+}
+
+/* SHOPPING - olive */
+.chartIcon2 {
+  left: 285px;
+  top: 340px;
+}
+
+/* GROCERIES - teal */
+.chartIcon3 {
+  left: 130px;
+  top: 340px;
+}
+
+/* LIFESTYLE - dark green */
+.chartIcon4 {
+  left: 60px;
+  top: 210px;
+}
+
+/* TRANSPORTATION - cream */
+.chartIcon5 {
+  left: 135px;
+  top: 80px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes dissolveIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
