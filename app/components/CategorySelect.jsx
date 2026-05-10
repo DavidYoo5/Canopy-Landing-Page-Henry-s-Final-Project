@@ -10,7 +10,7 @@ export default function CategorySelect() {
 
   const categories = [
     { id: 1, name: "Food", price: 10, icon: "/pizza-icon.svg" },
-    { id: 2, name: "Drink", price: 8.50, icon: "/drinks-icon.svg" },
+    { id: 2, name: "Drink", price: 8.5, icon: "/drinks-icon.svg" },
     { id: 3, name: "Shopping", price: 63.15, icon: "/bag-icon.svg" },
     { id: 4, name: "Groceries", price: 12, icon: "/croisant-icon.svg" },
     { id: 5, name: "Lifestyle", price: 11.75, icon: "/burger-icon.svg" },
@@ -64,6 +64,12 @@ export default function CategorySelect() {
 
     setDailyAmount(totalAmount);
     setShowDailyAmount(true);
+  }
+
+  function handleResetCart() {
+    setCartItems([]);
+    setDailyAmount(0);
+    setShowDailyAmount(false);
   }
 
   return (
@@ -121,6 +127,13 @@ export default function CategorySelect() {
         <div className={styles.dailyAmountBox}>
           {showDailyAmount === true ? dailyAmount.toFixed(2) : ""}
         </div>
+
+        <button
+          className={styles.resetCartButton}
+          onClick={handleResetCart}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );

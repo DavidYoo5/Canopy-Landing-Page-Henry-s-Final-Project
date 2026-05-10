@@ -924,7 +924,7 @@
 
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: bold;
 
   padding: 10px 14px;
 
@@ -954,7 +954,7 @@
 
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: bold;
 
   color: #2e8d6f;
 }
@@ -965,6 +965,26 @@
 .categorySelectWrapper {
   margin-top: 350px;
 }
+
+.resetCartButton {
+  height: 63px;
+  background: #2e8d6f;
+  border: none;
+  color: #fffbd3;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.resetCartButton:hover {
+  transform: scale(1.04);
+}
+
+
 /* =========================
    ANIMATION
 ========================= */
