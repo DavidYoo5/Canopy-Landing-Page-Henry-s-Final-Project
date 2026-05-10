@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "../page.module.css";
 
 import InsightChart from "./InsightChart";
+import CategorySelect from "./CategorySelect";
 
 export default function InsightsSection() {
   const categories = [
@@ -63,6 +64,7 @@ export default function InsightsSection() {
 
   return (
     <section className={styles.insightsSection}>
+        <div className={styles.insightsContainer}>
       <p className={styles.insightsNumber}>02</p>
 
       <div className={styles.insightsLayout}>
@@ -80,13 +82,24 @@ export default function InsightsSection() {
 
         {/* RIGHT SIDE */}
         <div className={styles.insightsInteractiveArea}>
-          <InsightChart
-            categories={categories}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
+        <div className={styles.insightsRightStack}>
+
+        <div className={styles.chartWrapper}>
+      <InsightChart
+        categories={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        />
+     </div>
+
+        <div className={styles.categorySelectWrapper}>
+        <CategorySelect />
         </div>
-      </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
   );
 }
