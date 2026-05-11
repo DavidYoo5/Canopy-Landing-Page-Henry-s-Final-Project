@@ -1,0 +1,37 @@
+/* Outer wrapper — tall enough for all slides to scroll through */
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Base panel shared by all three phases */
+.panel {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Above the section — sits at the top of the wrapper */
+.panelBefore {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Scrolling through — locked to the viewport */
+.panelFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Past the section — anchored to the bottom of the wrapper */
+.panelAfter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

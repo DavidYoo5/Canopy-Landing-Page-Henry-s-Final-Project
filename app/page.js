@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import BackToTop from "./components/BackToTop";
 import DarkModeToggle from "./components/DarkModeToggle";
 import HeroCarousel from "./components/HeroCarousel";
+import ScrollAnim from "./components/ScrollAnim";
 
 export default function Home() {
   return (
@@ -61,11 +62,11 @@ export default function Home() {
           </ul>
         </div>
       </nav>
-
       <DarkModeToggle />
 
       {/* CONTENT */}
       <section className={styles.content}>
+        <ScrollAnim />
         <h1 className={styles.pageTitle}>Welcome to Canopy</h1>
 
         <section
