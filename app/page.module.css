@@ -652,9 +652,11 @@
 
 }
 
-/* =========================
-   CHART
-========================= */
+
+
+
+   /* CHART */
+
 
 .insightChart {
   display: flex;
@@ -723,9 +725,11 @@
   margin-bottom: 0;
 }
 
-/* =========================
-   ICONS INSIDE CHART
-========================= */
+
+
+
+   /* ICONS INSIDE CHART */
+
 
 .chartIconButton {
   position: absolute;
@@ -765,9 +769,10 @@
   -webkit-mask-size: contain;
 }
 
-/* =========================
-   ICON POSITIONS
-========================= */
+
+
+
+   /* ICON POSITIONS */
 
 /* FOOD - yellow */
 .chartIcon0 {
@@ -805,9 +810,10 @@
   top: 80px;
 }
 
-/* =========================
-   CATEGORY SELECT
-========================= */
+
+
+
+   /* CATEGORY SELECT */
 
 .categorySelectArea {
   display: flex;
@@ -985,9 +991,8 @@
 }
 
 
-/* =========================
-   ANIMATION
-========================= */
+/*  ANIMATION */
+
 
 @keyframes dissolveIn {
   from {
