@@ -66,8 +66,6 @@ export default function Home() {
 
       {/* CONTENT */}
       <section className={styles.content}>
-        <h1 className={styles.pageTitle}>Welcome to Canopy</h1>
-
         <section
           id="section-banner"
           className={styles.contentSection}
@@ -96,20 +94,9 @@ export default function Home() {
         ></section>
 
         <section id="section-hero-carousel" className={styles.contentSection}>
-          <div className={styles.heroSplit}>
-            {/* LEFT IMAGE PLACEHOLDER */}
-            <div className={styles.heroLeft}>
-              <img
-                src="/ForestImage.jpg" // change later
-                alt="Hero visual"
-                className={styles.heroPlaceholder}
-              />
-            </div>
-
-            {/* RIGHT CAROUSEL */}
-            <div className={styles.heroRight}>
-              <HeroCarousel />
-            </div>
+          {/* RIGHT CAROUSEL */}
+          <div className={styles.heroRight}>
+            <HeroCarousel />
           </div>
         </section>
 

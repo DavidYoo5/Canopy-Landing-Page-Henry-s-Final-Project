@@ -13,6 +13,12 @@ const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
+const dmSansBold = DM_Sans({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-dm-sans-bold",
+});
+
 export const metadata = {
   title: "Canopy",
   description: "Canopy visual style guide",
