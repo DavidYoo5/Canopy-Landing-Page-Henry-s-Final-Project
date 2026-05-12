@@ -50,9 +50,12 @@ export default function HeroCarousel() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <button onClick={prevSlide} className={styles.carouselArrow}>
-        <span className={styles.arrow}>‹</span>
-      </button>
+      <button
+  onClick={prevSlide}
+  className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
+>
+  <span className={styles.arrow}>‹</span>
+</button>
 
       <div
         key={currentSlide}
@@ -75,9 +78,12 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <button onClick={nextSlide} className={styles.carouselArrow}>
-        <span className={styles.arrow}>›</span>
-      </button>
+      <button
+  onClick={nextSlide}
+  className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
+>
+  <span className={styles.arrow}>›</span>
+</button>
     </div>
   );
 }
