@@ -42,12 +42,17 @@
 /* =========================
    TYPOGRAPHY
 ========================= */
-.pageTitle {
+.pageTitleContainer {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.pageTitleMain {
   font-family: var(--font-dm-serif), serif;
   color: var(--pine-teal);
-  text-align: center;
-  margin-bottom: 40px;
   font-size: 3rem;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .page h1,
@@ -186,6 +191,13 @@
   width: 100%;
   margin: 0 auto;
   padding: 60px 80px;
+}
+
+.fullWidthSection {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* =========================

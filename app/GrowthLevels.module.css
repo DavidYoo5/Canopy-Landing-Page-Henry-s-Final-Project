@@ -1,0 +1,436 @@
+/* =========================
+   WRAPPER
+========================= */
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+/* =========================
+   HEADING
+========================= */
+.headingArea {
+  text-align: center;
+  max-width: 560px;
+  padding: 0 20px;
+}
+
+.subheading {
+  color: #6b8f71;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================
+   SPLIT LAYOUT
+========================= */
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;
+  gap: 32px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* =========================
+   GROWTH PANEL (LEFT)
+========================= */
+.growthPanel {
+  background: #ffffff;
+  border: 1px solid rgba(0, 71, 56, 0.08);
+  border-radius: 24px;
+  padding: 32px 36px 28px;
+  box-shadow: 0 8px 32px rgba(0, 71, 56, 0.06);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: #6b8f71;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.panelTitle {
+  color: #004738;
+}
+
+.panelDivider {
+  color: #b0c9a8;
+}
+
+.panelSubtitle {
+  color: #8dab59;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+.progressTrack {
+  position: relative;
+  height: 4px;
+  background: #e0e8d8;
+  border-radius: 2px;
+  margin: 0 calc(100% / 12) 36px;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #8dab59, #004738);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressDot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #d0dcc8;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  padding: 0;
+}
+
+.progressDotActive {
+  border-color: #004738;
+  background: #004738;
+}
+
+.progressDotCurrent {
+  width: 18px;
+  height: 18px;
+  border-color: #8dab59;
+  background: #8dab59;
+  box-shadow: 0 0 0 4px rgba(141, 171, 89, 0.25);
+}
+
+.progressDot:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* =========================
+   STAGES ROW
+========================= */
+.stagesRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.stageItem:hover {
+  background: rgba(141, 171, 89, 0.08);
+  transform: translateY(-2px);
+}
+
+.stageItemActive {
+  background: rgba(141, 171, 89, 0.12);
+}
+
+.treeImageWrap {
+  width: 80px;
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.treeImage {
+  object-fit: contain;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 71, 56, 0.1));
+}
+
+.stageLabel {
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: #8dab59;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stageName {
+  font-size: 0.75rem;
+  color: #004738;
+  font-weight: 600;
+}
+
+.stageItemActive .stageName {
+  color: #004738;
+  font-weight: 700;
+}
+
+/* =========================
+   QUEST CARD (RIGHT)
+========================= */
+.questCard {
+  background: #e0f2c4;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 71, 56, 0.1);
+  animation: questFadeIn 0.4s ease;
+  min-width: 220px;
+}
+
+@keyframes questFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.questHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px 10px;
+}
+
+.questTitle {
+  font-family: var(--font-dm-serif), serif;
+  font-size: 1.05rem;
+  color: #fffbd3;
+}
+
+.questLevel {
+  font-size: 0.8rem;
+  color: #fffbd3;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.questLevelIcon {
+  font-size: 1rem;
+}
+
+.questWeekBadge {
+  display: block;
+  text-align: center;
+  background: #2e8d6f;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   QUEST LIST
+========================= */
+.questList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.questItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px dashed rgba(0, 71, 56, 0.12);
+  transition: background 0.2s ease;
+}
+
+.questItem:last-child {
+  border-bottom: none;
+}
+
+.questItem:hover {
+  background: rgba(0, 71, 56, 0.03);
+}
+
+.questText {
+  font-size: 0.8rem;
+  color: #1b4332;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.questToggleArea {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.questSticker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.questEmpty {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px dashed #c8d8bc;
+  flex-shrink: 0;
+}
+
+/* =========================
+   TOGGLE SWITCH
+========================= */
+.questToggle {
+  position: relative;
+  width: 36px;
+  height: 18px;
+  border-radius: 9px;
+  background: #c8d8bc;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.questToggleOn {
+  background: #2e8d6f;
+}
+
+.questToggleDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.questToggleOn .questToggleDot {
+  transform: translateX(18px);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+:global(body.dark-mode) .headingBubble {
+  background: #183b2f;
+}
+
+:global(body.dark-mode) .heading {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .growthPanel {
+  background: #0d2b20;
+  border-color: rgba(255, 251, 211, 0.08);
+}
+
+:global(body.dark-mode) .panelTitle,
+:global(body.dark-mode) .stageName {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .progressTrack {
+  background: #1a3d2e;
+}
+
+:global(body.dark-mode) .progressDot {
+  border-color: #1a3d2e;
+  background: #0d2b20;
+}
+
+:global(body.dark-mode) .progressDotActive {
+  background: #8dab59;
+  border-color: #8dab59;
+}
+
+:global(body.dark-mode) .questCard {
+  background: #143d2e;
+  border: 1px solid rgba(141, 171, 89, 0.2);
+}
+
+:global(body.dark-mode) .questText {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .questItem {
+  border-bottom-color: rgba(255, 251, 211, 0.08);
+}
+
+:global(body.dark-mode) .stageItem:hover {
+  background: rgba(141, 171, 89, 0.12);
+}
+
+:global(body.dark-mode) .stageItemActive {
+  background: rgba(141, 171, 89, 0.18);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 860px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .questCard {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .headingBubble {
+    padding: 20px 28px;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .growthPanel {
+    padding: 20px 16px;
+  }
+
+  .stagesRow {
+    gap: 2px;
+  }
+
+  .stageItem {
+    padding: 6px 4px;
+  }
+
+  .treeImageWrap {
+    width: 50px;
+    height: 70px;
+  }
+}

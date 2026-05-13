@@ -6,6 +6,8 @@ import styles from "./page.module.css";
 import BackToTop from "./components/BackToTop";
 import DarkModeToggle from "./components/DarkModeToggle";
 import HeroCarousel from "./components/HeroCarousel";
+import GrowthLevels from "./components/GrowthLevels";
+import TreeGallery from "./components/TreeGallery";
 
 export default function Home() {
   return (
@@ -66,34 +68,23 @@ export default function Home() {
 
       {/* CONTENT */}
       <section className={styles.content}>
-        <h1 className={styles.pageTitle}>Welcome to Canopy</h1>
-
-        <section
-          id="section-banner"
-          className={styles.contentSection}
-        ></section>
-
-        <section id="section-logo" className={styles.contentSection}></section>
-
-        <section
-          id="section-experience-caopy-heading"
-          className={styles.contentSection}
-        ></section>
-
-        <section
-          id="section-set-budget"
-          className={styles.contentSection}
-        ></section>
-
-        <section
-          id="section-insight"
-          className={styles.contentSection}
-        ></section>
+        <div className={styles.pageTitleContainer}>
+          <h1 className={styles.pageTitleMain}>Build your habit</h1>
+        </div>
 
         <section
           id="section-grow-savings-tree"
           className={styles.contentSection}
-        ></section>
+        >
+          <GrowthLevels />
+        </section>
+
+        <section
+          id="section-tree-gallery"
+          className={styles.contentSection}
+        >
+          <TreeGallery />
+        </section>
 
         <section id="section-hero-carousel" className={styles.contentSection}>
           <div className={styles.heroSplit}>
