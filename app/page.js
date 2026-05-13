@@ -7,6 +7,7 @@ import BackToTop from "./components/BackToTop";
 import DarkModeToggle from "./components/DarkModeToggle";
 import HeroCarousel from "./components/HeroCarousel";
 import InsightsSection from "./components/InsightsSection";
+import ChooseCategory from "./components/ChooseCategory";
 
 export default function Home() {
   return (
@@ -85,6 +86,12 @@ export default function Home() {
           id="section-set-budget"
           className={styles.contentSection}
         ></section>
+
+        <section 
+          id="Choose-Category"
+          className={styles.contentSection}
+        > <ChooseCategory /></section>
+
 
         <section
           id="section-insight"
