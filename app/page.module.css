@@ -637,11 +637,18 @@
 
 .featureLabel {
   position: absolute;
-  top: clamp(30px, 3vw, 42px);
-  left: clamp(30px, 3vw, 48px);
+  /* top: clamp(30px, 3vw, 42px);
+  left: clamp(30px, 3vw, 48px); */
+  top: 10px;
+  left: 40px;
   margin: 0;
 
-  font-size: clamp(9px, 0.8vw, 11px);
+  font-family: var(--font-dm-serif), serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: black;
 }
 
 .insightsTextCard {
@@ -1005,6 +1012,9 @@
   padding: 4rem 2rem;
 }
 
+.chooseCategoryTextCard:hover {
+  transform: scale(1.03);
+}
 
 .chooseCategoryTextCard {
   position: relative;
@@ -1020,8 +1030,8 @@
   transition: transform 0.3s ease;
 }
 
-.chooseCategoryNumber {
-position: absolute;
+/* .chooseCategoryNumber {
+  position: absolute;
   top: 40px;
   left: 130px;
 
@@ -1034,17 +1044,23 @@ position: absolute;
 
   color: black;
 
-}
+} */
 
 .chooseCategoryFeatureLabel {
    position: absolute;
-  top: clamp(30px, 3vw, 42px);
-  left: clamp(30px, 3vw, 48px);
+  /* top: clamp(30px, 3vw, 42px);
+  left: clamp(30px, 3vw, 48px); */
+
+  top: 60px;
+  left: 40px;
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  margin-top: -50px;
+  font-family: var(--font-dm-serif), serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
 
-
-  font-size: clamp(9px, 0.8vw, 11px);
+  color: black;
 }
 
 .chooseCategoryTextContent h2 {
@@ -1220,13 +1236,13 @@ position: absolute;
 .savedCategoryPill {
   width: 330px;
   height: 42px;
-  background-color: #eaff9b;
+  background-color: #005042;
   border-radius: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.7rem;
-  color: #159476;
+  color: white;
   font-weight: 700;
 }
 

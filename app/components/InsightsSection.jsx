@@ -65,11 +65,11 @@ export default function InsightsSection() {
   return (
     <section className={styles.insightsSection}>
       <div className={styles.insightsContainer}>
-        <p className={styles.insightsNumber}>03</p>
+        <p className={styles.insightsNumber}></p>
 
         <div className={styles.insightsLayout}>
           <div className={styles.insightsTextCard}>
-            <p className={styles.featureLabel}>FEATURE 03</p>
+            <p className={styles.featureLabel}>03</p>
 
             <h2>Explore Simple Insights</h2>
 
