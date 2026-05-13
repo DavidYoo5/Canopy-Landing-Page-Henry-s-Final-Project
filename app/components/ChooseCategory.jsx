@@ -46,9 +46,9 @@ export default function ChooseCategory() {
 
   return (
     <section id="Choose-Category" className={styles.chooseCategorySection}>
-        <p className={styles.chooseCategoryNumber}>02</p>
+        <p className={styles.chooseCategoryNumber}></p>
       <div className={styles.chooseCategoryTextCard}>
-        <p className={styles.chooseCategoryFeatureLabel}>FEATURE 02</p>
+        <p className={styles.chooseCategoryFeatureLabel}>02</p>
 
         <div className={styles.chooseCategoryTextContent}>
           <h2>Set Categories For Your Expenses</h2>
