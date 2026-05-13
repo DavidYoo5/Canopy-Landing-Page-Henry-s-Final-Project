@@ -1,8 +1,8 @@
 "use client";
 
-
 import { useState } from "react";
 import styles from "../page.module.css";
+import ScrollMoveText from "./ScrollMoveText";
 
 const icons = [
   "/icons/food.svg",
@@ -22,7 +22,6 @@ const icons = [
   "/icons/computer.svg",
   "/icons/tooth.svg",
 ];
-
 
 export default function ChooseCategory() {
   const [categoryName, setCategoryName] = useState("");
@@ -46,17 +45,23 @@ export default function ChooseCategory() {
 
   return (
     <section id="Choose-Category" className={styles.chooseCategorySection}>
-        <p className={styles.chooseCategoryNumber}></p>
       <div className={styles.chooseCategoryTextCard}>
         <p className={styles.chooseCategoryFeatureLabel}>02</p>
+        <ScrollMoveText className={styles.featureTextScroll}>
+          <div className={styles.chooseCategoryTextContent}>
+            <h2>Set Categories For Your Expenses</h2>
 
-        <div className={styles.chooseCategoryTextContent}>
-          <h2>Set Categories For Your Expenses</h2>
-          <p>
-            Once you have set your categories, you can easily track your expenses
-            and understand where your money is going.
-          </p>
-        </div>
+            <div>
+              <p className={styles.chooseCategoryTextContentP}>
+                Once you have set your categories, you can easily track your
+                expenses and understand where your money is going.
+              </p>
+              <p className={styles.featureHint1}>
+                Try it: type, choose icon, and save.
+              </p>
+            </div>
+          </div>
+        </ScrollMoveText>
       </div>
 
       <div className={styles.chooseCategoryFeatureWrap}>
@@ -67,14 +72,18 @@ export default function ChooseCategory() {
           <input
             type="text"
             value={categoryName}
-            onChange={(e) => setCategoryName(e.target.value)}
+            onChange={(event) => setCategoryName(event.target.value)}
             placeholder="Category name"
           />
 
           <label>Icons</label>
 
           <div className={styles.iconPreviewBox}>
-            {selectedIcon && <img src={selectedIcon} alt="Selected icon" />}
+            {selectedIcon ? (
+              <img src={selectedIcon} alt="Selected category icon" />
+            ) : (
+              <span></span>
+            )}
           </div>
 
           <div className={styles.iconGrid}>

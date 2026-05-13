@@ -259,14 +259,6 @@
   transition: transform 0.3s ease;
   z-index: 1;
 }
-
-.carouselReveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
 /* =========================
    CAROUSEL SLIDE
 ========================= */
@@ -865,6 +857,84 @@
 }
 
 /* =========================
+   DARK MODE — CHOOSE CATEGORY
+========================= */
+
+:global(body.dark-mode) .chooseCategoryTextCard {
+  background: linear-gradient(135deg, #183b2f, #081c15);
+  border: 1px solid rgba(255, 251, 211, 0.14);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+}
+
+:global(body.dark-mode) .chooseCategoryFeatureLabel,
+:global(body.dark-mode) .chooseCategoryTextContent h2,
+:global(body.dark-mode) .featureHint1 {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .chooseCategoryTextContentP {
+  color: #dbe9b4;
+}
+
+:global(body.dark-mode) .chooseCategoryBox {
+  background: linear-gradient(180deg, #1f7a5c 0%, #183b2f 100%);
+  color: #fffbd3;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 22px 55px rgba(0, 0, 0, 0.35);
+}
+
+:global(body.dark-mode) .chooseCategoryBox h3,
+:global(body.dark-mode) .chooseCategoryBox label {
+  color: #eef5d6;
+}
+
+:global(body.dark-mode) .chooseCategoryBox input {
+  background: #eef5d6;
+  color: #183b2f;
+}
+
+:global(body.dark-mode) .chooseCategoryBox input::placeholder {
+  color: rgba(24, 59, 47, 0.6);
+}
+
+:global(body.dark-mode) .chooseCategoryBox input:focus {
+  box-shadow: 0 0 0 2px rgba(214, 236, 143, 0.55);
+}
+
+:global(body.dark-mode) .iconPreviewBox {
+  background: rgba(6, 22, 17, 0.75);
+  border: 1px solid rgba(255, 251, 211, 0.18);
+}
+
+:global(body.dark-mode) .iconButton {
+  background: transparent;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+:global(body.dark-mode) .categoryButtons button {
+  background: #061611;
+  color: #d6ec8f;
+}
+
+:global(body.dark-mode) .categoryButtons button:hover {
+  background: #0b241c;
+}
+
+:global(body.dark-mode) .savedCategoryPill {
+  background: #eef5d6;
+  color: #183b2f;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+:global(body.dark-mode) .savedCategoryPill p {
+  color: #183b2f;
+}
+
+/* =========================
 HYE'S SECTION
 ========================= */
 
@@ -1199,13 +1269,19 @@ HYE'S SECTION
     margin-right 0.25s ease;
 }
 
-.appTabLineLeft {
+/* AFTER */
+.appTabLine {
+  /* add this to the existing rule */
   margin-left: 24px;
+  transition: transform 0.25s ease; /* change from margin to transform */
+}
+
+.appTabLineLeft {
+  transform: translateX(0);
 }
 
 .appTabLineRight {
-  margin-left: auto;
-  margin-right: 24px;
+  transform: translateX(154px);
 }
 
 /* Budget layout */
@@ -1216,6 +1292,10 @@ HYE'S SECTION
   display: flex;
   flex-direction: column;
 }
+
+/* =========================
+   BUDGET / EXPENSE SWITCH
+========================= */
 
 .budgetSwitch {
   width: 100%;
@@ -1232,6 +1312,10 @@ HYE'S SECTION
   position: relative;
   overflow: hidden;
 }
+
+/* =========================
+   SLIDING THUMB
+========================= */
 
 .switchThumb {
   position: absolute;
@@ -1258,15 +1342,23 @@ HYE'S SECTION
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
-  transform: translateX(0);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   z-index: 1;
 }
 
+/* RIGHT SIDE ANIMATION */
+
 .switchThumbRight {
-  transform: translateX(100%);
+  left: calc(50%);
+  transform: none;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 .switchButton {
   height: 100%;
@@ -2078,147 +2170,129 @@ HYE'S SECTION
    INSIGHTS SECTION
 ========================= */
 
-.insightsSection {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-}
-
 .insightsContainer {
-  width: min(1100px, calc(100% - 40px));
+  width: min(1100px, calc(100% - 96px));
   margin: 0 auto;
-  padding: 150px 0 130px;
+  padding: 0;
 }
 
-.insightsNumber {
-  position: absolute;
-  top: 10px;
-  left: 130px;
-
-  margin: 0;
-
-  font-family: var(--font-dm-serif), serif;
-  font-size: 100px;
-  font-weight: 700;
-  line-height: 1;
-
-  color: black;
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
 .insightsLayout {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(32px, 6vw, 100px);
+  display: grid;
+  grid-template-columns: 0.7fr 1.08fr;
+  align-items: start;
+  gap: 48px;
 }
-
-/* =========================
-   LEFT TEXT CARD
-========================= */
 
 .insightsTextCard {
+  order: 2;
+}
+
+.insightsInteractiveArea {
+  order: 1;
+}
+
+/* LEFT TEXT CARD */
+
+.insightsTextCard {
+  height: 400px;
+  padding: 50px 54px 50px 50px;
+
+  background: var(--canopy-mist);
+  border-radius: 28px;
+
   position: relative;
+  overflow: visible;
 
-  width: clamp(330px, 34vw, 430px);
-  height: clamp(330px, 34vw, 430px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  background: #e6f5a8;
-  border-radius: 32px;
-  padding: clamp(30px, 3vw, 48px);
+  box-shadow: none;
 
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .insightsTextCard:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 56px rgba(0, 71, 56, 0.1);
 }
-
-/* FEATURE LABEL */
 
 .featureLabel {
   position: absolute;
-  /* top: clamp(30px, 3vw, 42px);
-  left: clamp(30px, 3vw, 48px); */
-  top: 10px;
-  left: 40px;
+  top: 20px;
+  right: 30px;
+  left: auto;
+
   margin: 0;
 
-  font-family: var(--font-dm-serif), serif;
+  font-family: "DM Serif Display", serif;
   font-size: 96px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
 
-  color: black;
+  color: var(--pine-teal);
+  opacity: 0.9;
+
+  pointer-events: none;
 }
-
-.insightsTextCard {
-  position: relative;
-
-  width: clamp(330px, 34vw, 430px);
-  height: clamp(330px, 34vw, 430px);
-
-  background: #e6f5a8;
-  border-radius: 32px;
-  padding: clamp(30px, 3vw, 48px);
-
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
-  transition: transform 0.3s ease;
-}
-
-/* TITLE */
 
 .insightsTextCard h2 {
-  position: absolute;
-  left: clamp(30px, 3vw, 48px);
-  top: clamp(105px, 10vw, 135px);
+  position: static;
 
-  width: calc(100% - clamp(60px, 6vw, 96px));
+  max-width: 430px;
+  width: auto;
+  margin: 0 0 16px;
 
-  margin: 0;
-
-  font-size: clamp(28px, 3.3vw, 48px);
-  line-height: 1.15;
   font-family: "DM Sans", sans-serif;
+  font-size: clamp(36px, 3.8vw, 38px);
   font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.055em;
+
+  color: var(--pine-teal);
 }
 
-/* DESCRIPTION */
 .insightsDescription {
-  position: absolute;
-  left: clamp(30px, 3vw, 48px);
-  bottom: clamp(30px, 3vw, 48px);
+  position: static;
 
-  width: calc(100% - clamp(60px, 6vw, 96px));
-
+  width: auto;
+  max-width: 400px;
   margin: 0;
 
-  font-size: clamp(12px, 1.15vw, 16px);
-  line-height: 1.45;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: var(--forest-floor);
+
+  margin-bottom: 16px;
 }
 
-.insightsInteractiveArea {
-  flex-shrink: 0;
-}
-
-/* =========================
-   RIGHT SIDE
-========================= */
+/* RIGHT CHART AREA */
 
 .insightsInteractiveArea {
+  min-height: 400px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
 }
 
 .chartWrapper {
   transform: none;
-  transform: translateX(-20px);
+}
+
+.insightChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
 }
 
 /* =========================
@@ -2240,8 +2314,6 @@ HYE'S SECTION
 
   border-radius: 50%;
 
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
-
   background: conic-gradient(
     #efc71d 0deg 60deg,
     #ccea9d 60deg 120deg,
@@ -2251,12 +2323,12 @@ HYE'S SECTION
     #fffbd3 300deg 360deg
   );
 
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* CENTER CIRCLE */
 
 .chartCenter {
   width: 150px;
@@ -2271,11 +2343,8 @@ HYE'S SECTION
   transition: background-color 0.35s ease;
 }
 
-/* CENTER TEXT */
-
 .chartCenterContent {
   text-align: center;
-
   animation: dissolveIn 0.35s ease;
 }
 
@@ -2290,8 +2359,7 @@ HYE'S SECTION
 }
 
 .chartPrice {
-  margin-top: 8px;
-  margin-bottom: 0;
+  margin: 8px 0 0;
 
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 1.5rem;
@@ -2300,20 +2368,14 @@ HYE'S SECTION
   color: black;
 }
 
-/* =========================
-   ICONS INSIDE CHART
-========================= */
-
 .chartIconButton {
   position: absolute;
 
-  background: none;
-  border: none;
-
   padding: 0;
+  border: none;
+  background: none;
 
   cursor: pointer;
-
   transform: translate(-50%, -50%);
 
   transition: transform 0.2s ease;
@@ -2342,49 +2404,35 @@ HYE'S SECTION
   -webkit-mask-size: contain;
 }
 
-/* =========================
-   ICON POSITIONS
-========================= */
-
-/* FOOD */
 .chartIcon0 {
   left: 220px;
   top: 62px;
 }
 
-/* DRINK */
 .chartIcon1 {
   left: 275px;
   top: 160px;
 }
 
-/* SHOPPING */
 .chartIcon2 {
   left: 220px;
   top: 258px;
 }
 
-/* GROCERIES */
 .chartIcon3 {
   left: 100px;
   top: 258px;
 }
 
-/* LIFESTYLE */
 .chartIcon4 {
   left: 45px;
   top: 160px;
 }
 
-/* TRANSPORTATION */
 .chartIcon5 {
   left: 100px;
   top: 62px;
 }
-
-/* =========================
-   ANIMATION
-========================= */
 
 @keyframes dissolveIn {
   from {
@@ -2402,331 +2450,238 @@ HYE'S SECTION
    CHOOSE CATEGORY SECTION
 ========================= */
 
-.CategoryContainer {
+.chooseCategorySection {
+  width: min(1100px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: 1.08fr 0.7fr;
+  align-items: start;
+  gap: 48px;
+}
+
+/* =========================
+   LEFT TEXT CARD
+========================= */
+
+.chooseCategoryTextCard {
+  height: 444px;
+  padding: 50px 54px 50px 50px;
+
+  background: var(--canopy-mist);
+  border-radius: 28px;
+
+  position: relative;
+  overflow: visible;
+
+  display: block;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.chooseCategoryTextCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 56px rgba(0, 71, 56, 0.1);
+}
+
+.chooseCategoryFeatureLabel {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+
+  margin: 0;
+
+  font-family: "DM Serif Display", serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+
+  color: var(--pine-teal);
+  opacity: 0.9;
+
+  pointer-events: none;
+}
+
+.chooseCategoryTextContent {
+  height: 100%;
+
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.CategoryTextCard {
-  position: relative;
-
-  width: clamp(330px, 34vw, 430px);
-  height: clamp(330px, 34vw, 430px);
-
-  background: #e6f5a8;
-  border-radius: 32px;
-  padding: clamp(30px, 3vw, 48px);
-
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
-  transition: transform 0.3s ease;
-}
-
-.CategoryTextCard:hover {
-  transform: scale(1.03);
-}
-
-.featureCategoryLabel {
-  position: static;
-
-  margin: 0 0 28px;
-
-  font-family: var(--font-dm-sans), sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-
-  color: #4d5c2f;
-}
-
-.CategoryTextCard h2 {
+.chooseCategoryTextContent h2 {
   max-width: 430px;
+  margin: 0;
 
-  margin: 0 0 28px;
-
-  font-family: var(--font-dm-sans), sans-serif;
-  font-size: clamp(36px, 3.8vw, 48px);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(36px, 3.8vw, 38px);
   font-weight: 600;
   line-height: 1.2;
-
   letter-spacing: -0.055em;
 
   color: var(--pine-teal);
 }
 
-.CategoryDescription {
+.chooseCategoryTextContentP {
   max-width: 400px;
-
   margin: 0;
+  margin-bottom: 16px;
 
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
 
   color: var(--forest-floor);
 }
 
-/* Responsive layout */
+.featureHint1 {
+  margin: 0;
 
-@media (max-width: 900px) {
-  .insightsLayout {
-    gap: 48px;
-  }
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
 
-  .insightsTextCard {
-    max-width: 430px;
-    width: 100%;
-    min-height: 430px;
-    height: auto;
-  }
-
-  .insightsTextCard h2 {
-    position: static;
-    margin-top: 90px;
-    margin-bottom: 28px;
-    font-size: 36px;
-  }
-
-  .insightsDescription {
-    position: static;
-    font-size: 16px;
-  }
-
-  .featureLabel {
-    position: absolute;
-    top: 42px;
-    left: 48px;
-  }
+  color: var(--pine-teal);
+  opacity: 0.75;
 }
-
 /* =========================
-   Choose Category Section
+   RIGHT FEATURE AREA
 ========================= */
 
-.chooseCategorySection {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
-  padding: 4rem 2rem;
-}
-
-.chooseCategoryTextCard:hover {
-  transform: scale(1.03);
-}
-
-.chooseCategoryTextCard {
-  position: relative;
-
-  width: clamp(330px, 34vw, 430px);
-  height: clamp(330px, 34vw, 430px);
-
-  background: #e6f5a8;
-  border-radius: 32px;
-  padding: clamp(30px, 3vw, 48px);
-
-  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
-  transition: transform 0.3s ease;
-}
-
-/* .chooseCategoryNumber {
-  position: absolute;
-  top: 40px;
-  left: 130px;
-
-  margin: 0;
-
-  font-family: var(--font-dm-serif), serif;
-  font-size: 100px;
-  font-weight: 700;
-  line-height: 1;
-
-  color: black;
-
-} */
-
-.chooseCategoryFeatureLabel {
-  position: absolute;
-  /* top: clamp(30px, 3vw, 42px);
-  left: clamp(30px, 3vw, 48px); */
-
-  top: 60px;
-  left: 40px;
-  margin: 0;
-  margin-top: -50px;
-  font-family: var(--font-dm-serif), serif;
-  font-size: 96px;
-  font-weight: 400;
-  line-height: 1;
-
-  color: black;
-}
-
-.chooseCategoryTextContent h2 {
-  position: absolute;
-  left: clamp(30px, 3vw, 48px);
-  top: clamp(110px, 12vw, 80px);
-
-  width: calc(100% - clamp(60px, 6vw, 96px));
-
-  margin: 0;
-
-  font-size: clamp(28px, 3.3vw, 48px);
-  line-height: 1.15;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-}
-
-.chooseCategoryTextContent p {
-  position: absolute;
-  left: clamp(30px, 3vw, 48px);
-  bottom: clamp(30px, 3vw, 48px);
-
-  width: calc(100% - clamp(60px, 6vw, 96px));
-
-  margin: 0;
-
-  font-size: clamp(12px, 1.15vw, 16px);
-  line-height: 1.45;
-}
-
 .chooseCategoryFeatureWrap {
+  min-height: 400px;
+  padding: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
+  justify-content: center;
+  gap: 14px;
 }
 
+/* =========================
+   CATEGORY CARD
+========================= */
+
 .chooseCategoryBox {
-  width: 330px;
-  height: 360px;
-  background: linear-gradient(#2f9679, #8fb77a);
-  border-radius: 1.8rem;
-  padding: 1.5rem;
+  width: min(100%, 340px);
+  min-height: 400px;
+  height: auto;
+  padding: 30px 26px 24px;
+
+  background: linear-gradient(180deg, #00a678 0%, #78ae60 100%);
+  border-radius: 28px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 16px 34px rgba(0, 71, 56, 0.16);
+
   color: white;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .chooseCategoryBox h3 {
+  margin: 0 0 20px;
+
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 24px;
-  color: white;
+
   font-family: "DM Sans", sans-serif;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
+
+  color: white;
 }
 
 .chooseCategoryBox label {
-  display: block;
-  font-size: 0.75rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 7px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  color: white;
 }
 
 .chooseCategoryBox input {
   width: 100%;
-  height: 32px;
+  min-height: 40px;
+  height: 40px;
+  padding: 0 13px;
+  margin-bottom: 18px;
+
   border: none;
-  border-radius: 2rem;
-  padding: 0 1rem;
-  margin-bottom: 1rem;
+  border-radius: 999px;
   outline: none;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--pine-teal);
+  flex-shrink: 0;
+}
+
+.chooseCategoryBox input::placeholder {
+  color: #1f7a5c;
 }
 
 .iconPreviewBox {
   width: 100%;
-  height: 32px;
+  min-height: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+
   border: 2px solid white;
-  border-radius: 2rem;
+  border-radius: 999px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .iconPreviewBox img {
   width: 18px;
   height: 18px;
-  object-fit: contain;
 }
+
+/* =========================
+   ICON GRID
+========================= */
 
 .iconGrid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
 }
 
 .iconButton {
+  padding: 0;
+
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-}
-
-.iconButton img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
-.activeIcon {
-  transform: scale(1.25);
-}
-
-.categoryButtons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.categoryButtons button {
-  background-color: #005042;
-  color: white;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.65rem 1.7rem;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.categoryButtons button:active {
-  background-color: white;
-  color: #005042;
-}
-
-.categoryButtons button {
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.2s ease,
-    box-shadow 0.25s ease;
-}
-
-.categoryButtons button:hover {
-  background-color: white;
-  color: #005042;
-
-  transform: translateY(-3px);
-
-  box-shadow: 0 10px 24px rgba(0, 80, 66, 0.2);
-}
-
-.iconButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
 
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
 }
 
+.iconButton img {
+  width: 18px;
+  height: 18px;
+}
+
 .iconButton:hover {
-  transform: scale(1.5);
+  transform: scale(1.35);
   opacity: 0.8;
 }
 
@@ -2734,58 +2689,79 @@ HYE'S SECTION
   transform: scale(0.95);
 }
 
-.savedCategoryPill {
-  width: 330px;
-  height: 42px;
-  background-color: #005042;
-  border-radius: 2rem;
+.activeIcon {
+  transform: scale(1.25);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.categoryButtons {
+  margin-top: 32px;
+
   display: flex;
   justify-content: center;
+  gap: 16px;
+}
+
+.categoryButtons button {
+  height: 42px;
+  padding: 0 26px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--pine-teal);
+  color: white;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.categoryButtons button:hover {
+  background: white;
+  color: var(--pine-teal);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SAVED CATEGORY PILL
+========================= */
+
+.savedCategoryPill {
+  width: min(100%, 340px);
+  height: 42px;
+  margin-top: 4px;
+
+  background: var(--pine-teal);
+  border-radius: 999px;
+
+  display: flex;
   align-items: center;
-  gap: 0.7rem;
+  justify-content: center;
+  gap: 10px;
+
   color: white;
   font-weight: 700;
+
+  box-shadow: 0 10px 24px rgba(0, 71, 56, 0.16);
 }
 
 .savedCategoryPill img {
   width: 16px;
   height: 16px;
-  object-fit: contain;
 }
 
 .savedCategoryPill p {
   margin: 0;
-}
-
-/* media query for chooseCategory */
-
-@media (max-width: 900px) {
-  .chooseCategorySection {
-    gap: 48px;
-  }
-
-  .chooseCategoryTextCard {
-    max-width: 430px;
-    width: 100%;
-    min-height: 430px;
-    height: auto;
-  }
-
-  .chooseCategoryTextContent h2 {
-    position: static;
-    margin-top: 90px;
-    margin-bottom: 28px;
-    font-size: 36px;
-  }
-
-  .chooseCategoryTextContent p {
-    position: static;
-    font-size: 16px;
-  }
-
-  .chooseCategoryFeatureLabel {
-    position: absolute;
-    top: 42px;
-    left: 48px;
-  }
 }

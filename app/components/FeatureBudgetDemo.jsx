@@ -226,7 +226,7 @@ export default function FeatureBudgetDemo() {
 
         <ScrollMoveText className={styles.featureTextScroll}>
           <h2>
-            Log expenses and <br /> Set budgets
+            Log Expenses and <br /> Set Budgets
           </h2>
 
           <div className={styles.featureTextBottom}>

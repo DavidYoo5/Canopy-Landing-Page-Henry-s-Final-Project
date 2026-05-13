@@ -1,10 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import styles from "../page.module.css";
 
 import InsightChart from "./InsightChart";
+import ScrollMoveText from "./ScrollMoveText";
 
 export default function InsightsSection() {
   const categories = [
@@ -70,13 +70,19 @@ export default function InsightsSection() {
         <div className={styles.insightsLayout}>
           <div className={styles.insightsTextCard}>
             <p className={styles.featureLabel}>03</p>
+            <ScrollMoveText className={styles.featureTextScroll}>
+              <h2>Explore Simple Insights</h2>
 
-            <h2>Explore Simple Insights</h2>
-
-            <p className={styles.insightsDescription}>
-              After adding an expense, you can check your insights to see where
-              your expenses go.
-            </p>
+              <div>
+                <p className={styles.insightsDescription}>
+                  After adding an expense, you can check your insights to see
+                  where your expenses go.
+                </p>
+                <p className={styles.featureHint}>
+                  Try it: press on a category and see your expenses.
+                </p>
+              </div>
+            </ScrollMoveText>
           </div>
 
           <div className={styles.insightsInteractiveArea}>

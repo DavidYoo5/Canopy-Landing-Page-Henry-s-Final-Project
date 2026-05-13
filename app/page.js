@@ -82,7 +82,7 @@ export default function Home() {
           </RevealOnScroll>
 
           <h2 className={styles.interactiveAppDescription}>
-            Click, Type, and Hover to preview
+            Click, Type, and Hover to Preview
           </h2>
         </section>
 
