@@ -9,6 +9,8 @@ import HeroCarousel from "./components/HeroCarousel";
 import RevealOnScroll from "./components/RevealOnScroll";
 import FeatureBudgetDemo from "./components/FeatureBudgetDemo";
 import TeamSection from "./components/TeamSection";
+import InsightsSection from "./components/InsightsSection";
+import ChooseCategory from "./components/ChooseCategory";
 
 export default function Home() {
   return (
@@ -59,10 +61,7 @@ export default function Home() {
 
       {/* CONTENT */}
       <section className={styles.content}>
-        <section
-          id="section-Home"
-          className={styles.contentSection}
-        ></section>
+        <section id="section-Home" className={styles.contentSection}></section>
 
         <section id="section-logo" className={styles.contentSection}></section>
 
@@ -71,37 +70,32 @@ export default function Home() {
           className={styles.contentSection}
         ></section>
 
-        <section
-          id="section-Demo"
-          className={styles.contentSection}
-        >
+        <section id="section-Demo" className={styles.contentSection}>
           <h3 className={styles.interactiveAppHeading}>
-          Interactive app features
-        </h3>
+            Interactive app features
+          </h3>
 
-        <RevealOnScroll className={styles.typingTitleReveal}>
-          <h1 className={styles.interactiveAppTitle}>
-            <span className={styles.typingText}>Experience Canopy</span>
-          </h1>
-        </RevealOnScroll>
+          <RevealOnScroll className={styles.typingTitleReveal}>
+            <h1 className={styles.interactiveAppTitle}>
+              <span className={styles.typingText}>Experience Canopy</span>
+            </h1>
+          </RevealOnScroll>
 
-        <h2 className={styles.interactiveAppDescription}>
-          Click, Type, and Hover to preview
-        </h2>
+          <h2 className={styles.interactiveAppDescription}>
+            Click, Type, and Hover to preview
+          </h2>
         </section>
 
-        <section
-          id="section-budget-demo"
-          className={styles.contentSection}
-        >
+        <section id="section-budget-demo" className={styles.contentSection}>
           <FeatureBudgetDemo />
         </section>
 
-        <section
-          id="section-insight-demo"
-          className={styles.contentSection}
-        >
+        <section id="section-choose-category" className={styles.contentSection}>
+          <ChooseCategory />
+        </section>
 
+        <section id="section-insight-demo" className={styles.contentSection}>
+          <InsightsSection />
         </section>
 
         <section
@@ -111,37 +105,30 @@ export default function Home() {
 
         <section id="section-Branding" className={styles.contentSection}>
           {/* RIGHT CAROUSEL */}
-            <RevealOnScroll className={styles.carouselReveal}>
-              <HeroCarousel />
-            </RevealOnScroll>
+          <RevealOnScroll className={styles.carouselReveal}>
+            <HeroCarousel />
+          </RevealOnScroll>
         </section>
 
+        <section id="section-LetsGrow" className={styles.contentSection}>
+          <RevealOnScroll className={styles.ctaMessageSection}>
+            <h1 className={styles.ctaMessage}>
+              <span className={styles.ctaLineMask}>
+                <span className={styles.ctaSans}>Start small.</span>
+              </span>
 
-        <section 
-          id="section-LetsGrow"
-          className={styles.contentSection}
-        >
-           <RevealOnScroll className={styles.ctaMessageSection}>
-        <h1 className={styles.ctaMessage}>
-          <span className={styles.ctaLineMask}>
-            <span className={styles.ctaSans}>Start small.</span>
-          </span>
+              <span className={styles.ctaLineMask}>
+                <span className={styles.ctaSans}>Stay on track.</span>
+              </span>
 
-          <span className={styles.ctaLineMask}>
-            <span className={styles.ctaSans}>Stay on track.</span>
-          </span>
-
-          <span className={styles.ctaLineMask}>
-            <span className={styles.ctaSerif}>Grow with Canopy.</span>
-          </span>
-        </h1>
-      </RevealOnScroll>
+              <span className={styles.ctaLineMask}>
+                <span className={styles.ctaSerif}>Grow with Canopy.</span>
+              </span>
+            </h1>
+          </RevealOnScroll>
         </section>
 
-        <section
-          id="section-Roots"
-          className={styles.contentSection}
-        >
+        <section id="section-Roots" className={styles.contentSection}>
           <TeamSection />
         </section>
       </section>

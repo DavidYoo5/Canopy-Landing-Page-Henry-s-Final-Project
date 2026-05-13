@@ -865,8 +865,9 @@
 }
 
 /* =========================
-HYE'S PART
+HYE'S SECTION
 ========================= */
+
 /* =========================
    INTERACTIVE APP FEATURES TITLES
 ========================= */
@@ -2066,5 +2067,725 @@ HYE'S PART
   .teamPanelContribution {
     font-size: 13px;
     line-height: 1.4;
+  }
+}
+
+/* =========================
+   GURJOT'S SECTION
+========================= */
+
+/* =========================
+   INSIGHTS SECTION
+========================= */
+
+.insightsSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.insightsContainer {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 150px 0 130px;
+}
+
+.insightsNumber {
+  position: absolute;
+  top: 10px;
+  left: 130px;
+
+  margin: 0;
+
+  font-family: var(--font-dm-serif), serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1;
+
+  color: black;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.insightsLayout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(32px, 6vw, 100px);
+}
+
+/* =========================
+   LEFT TEXT CARD
+========================= */
+
+.insightsTextCard {
+  position: relative;
+
+  width: clamp(330px, 34vw, 430px);
+  height: clamp(330px, 34vw, 430px);
+
+  background: #e6f5a8;
+  border-radius: 32px;
+  padding: clamp(30px, 3vw, 48px);
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.insightsTextCard:hover {
+  transform: scale(1.03);
+}
+
+/* FEATURE LABEL */
+
+.featureLabel {
+  position: absolute;
+  /* top: clamp(30px, 3vw, 42px);
+  left: clamp(30px, 3vw, 48px); */
+  top: 10px;
+  left: 40px;
+  margin: 0;
+
+  font-family: var(--font-dm-serif), serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: black;
+}
+
+.insightsTextCard {
+  position: relative;
+
+  width: clamp(330px, 34vw, 430px);
+  height: clamp(330px, 34vw, 430px);
+
+  background: #e6f5a8;
+  border-radius: 32px;
+  padding: clamp(30px, 3vw, 48px);
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+  transition: transform 0.3s ease;
+}
+
+/* TITLE */
+
+.insightsTextCard h2 {
+  position: absolute;
+  left: clamp(30px, 3vw, 48px);
+  top: clamp(105px, 10vw, 135px);
+
+  width: calc(100% - clamp(60px, 6vw, 96px));
+
+  margin: 0;
+
+  font-size: clamp(28px, 3.3vw, 48px);
+  line-height: 1.15;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+}
+
+/* DESCRIPTION */
+.insightsDescription {
+  position: absolute;
+  left: clamp(30px, 3vw, 48px);
+  bottom: clamp(30px, 3vw, 48px);
+
+  width: calc(100% - clamp(60px, 6vw, 96px));
+
+  margin: 0;
+
+  font-size: clamp(12px, 1.15vw, 16px);
+  line-height: 1.45;
+}
+
+.insightsInteractiveArea {
+  flex-shrink: 0;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.insightsInteractiveArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartWrapper {
+  transform: none;
+  transform: translateX(-20px);
+}
+
+/* =========================
+   CHART
+========================= */
+
+.insightChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -10px;
+}
+
+.chartCircle {
+  position: relative;
+
+  width: 320px;
+  height: 320px;
+
+  border-radius: 50%;
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+
+  background: conic-gradient(
+    #efc71d 0deg 60deg,
+    #ccea9d 60deg 120deg,
+    #8dab59 120deg 180deg,
+    #2e8d6f 180deg 240deg,
+    #004738 240deg 300deg,
+    #fffbd3 300deg 360deg
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CENTER CIRCLE */
+
+.chartCenter {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.35s ease;
+}
+
+/* CENTER TEXT */
+
+.chartCenterContent {
+  text-align: center;
+
+  animation: dissolveIn 0.35s ease;
+}
+
+.chartCategory {
+  margin: 0;
+
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: black;
+}
+
+.chartPrice {
+  margin-top: 8px;
+  margin-bottom: 0;
+
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  color: black;
+}
+
+/* =========================
+   ICONS INSIDE CHART
+========================= */
+
+.chartIconButton {
+  position: absolute;
+
+  background: none;
+  border: none;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+
+  transition: transform 0.2s ease;
+}
+
+.chartIconButton:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.chartIconButton:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.chartIcon {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* =========================
+   ICON POSITIONS
+========================= */
+
+/* FOOD */
+.chartIcon0 {
+  left: 220px;
+  top: 62px;
+}
+
+/* DRINK */
+.chartIcon1 {
+  left: 275px;
+  top: 160px;
+}
+
+/* SHOPPING */
+.chartIcon2 {
+  left: 220px;
+  top: 258px;
+}
+
+/* GROCERIES */
+.chartIcon3 {
+  left: 100px;
+  top: 258px;
+}
+
+/* LIFESTYLE */
+.chartIcon4 {
+  left: 45px;
+  top: 160px;
+}
+
+/* TRANSPORTATION */
+.chartIcon5 {
+  left: 100px;
+  top: 62px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes dissolveIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   CHOOSE CATEGORY SECTION
+========================= */
+
+.CategoryContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CategoryTextCard {
+  position: relative;
+
+  width: clamp(330px, 34vw, 430px);
+  height: clamp(330px, 34vw, 430px);
+
+  background: #e6f5a8;
+  border-radius: 32px;
+  padding: clamp(30px, 3vw, 48px);
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.CategoryTextCard:hover {
+  transform: scale(1.03);
+}
+
+.featureCategoryLabel {
+  position: static;
+
+  margin: 0 0 28px;
+
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+
+  color: #4d5c2f;
+}
+
+.CategoryTextCard h2 {
+  max-width: 430px;
+
+  margin: 0 0 28px;
+
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: clamp(36px, 3.8vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+
+  letter-spacing: -0.055em;
+
+  color: var(--pine-teal);
+}
+
+.CategoryDescription {
+  max-width: 400px;
+
+  margin: 0;
+
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: var(--forest-floor);
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+  .insightsLayout {
+    gap: 48px;
+  }
+
+  .insightsTextCard {
+    max-width: 430px;
+    width: 100%;
+    min-height: 430px;
+    height: auto;
+  }
+
+  .insightsTextCard h2 {
+    position: static;
+    margin-top: 90px;
+    margin-bottom: 28px;
+    font-size: 36px;
+  }
+
+  .insightsDescription {
+    position: static;
+    font-size: 16px;
+  }
+
+  .featureLabel {
+    position: absolute;
+    top: 42px;
+    left: 48px;
+  }
+}
+
+/* =========================
+   Choose Category Section
+========================= */
+
+.chooseCategorySection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 4rem 2rem;
+}
+
+.chooseCategoryTextCard:hover {
+  transform: scale(1.03);
+}
+
+.chooseCategoryTextCard {
+  position: relative;
+
+  width: clamp(330px, 34vw, 430px);
+  height: clamp(330px, 34vw, 430px);
+
+  background: #e6f5a8;
+  border-radius: 32px;
+  padding: clamp(30px, 3vw, 48px);
+
+  box-shadow: 0 24px 60px rgba(0, 71, 56, 0.12);
+  transition: transform 0.3s ease;
+}
+
+/* .chooseCategoryNumber {
+  position: absolute;
+  top: 40px;
+  left: 130px;
+
+  margin: 0;
+
+  font-family: var(--font-dm-serif), serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1;
+
+  color: black;
+
+} */
+
+.chooseCategoryFeatureLabel {
+  position: absolute;
+  /* top: clamp(30px, 3vw, 42px);
+  left: clamp(30px, 3vw, 48px); */
+
+  top: 60px;
+  left: 40px;
+  margin: 0;
+  margin-top: -50px;
+  font-family: var(--font-dm-serif), serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: black;
+}
+
+.chooseCategoryTextContent h2 {
+  position: absolute;
+  left: clamp(30px, 3vw, 48px);
+  top: clamp(110px, 12vw, 80px);
+
+  width: calc(100% - clamp(60px, 6vw, 96px));
+
+  margin: 0;
+
+  font-size: clamp(28px, 3.3vw, 48px);
+  line-height: 1.15;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+}
+
+.chooseCategoryTextContent p {
+  position: absolute;
+  left: clamp(30px, 3vw, 48px);
+  bottom: clamp(30px, 3vw, 48px);
+
+  width: calc(100% - clamp(60px, 6vw, 96px));
+
+  margin: 0;
+
+  font-size: clamp(12px, 1.15vw, 16px);
+  line-height: 1.45;
+}
+
+.chooseCategoryFeatureWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.chooseCategoryBox {
+  width: 330px;
+  height: 360px;
+  background: linear-gradient(#2f9679, #8fb77a);
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+  color: white;
+}
+
+.chooseCategoryBox h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+}
+
+.chooseCategoryBox label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.chooseCategoryBox input {
+  width: 100%;
+  height: 32px;
+  border: none;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.iconPreviewBox {
+  width: 100%;
+  height: 32px;
+  border: 2px solid white;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.iconPreviewBox img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.iconButton img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.activeIcon {
+  transform: scale(1.25);
+}
+
+.categoryButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.categoryButtons button {
+  background-color: #005042;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.65rem 1.7rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.categoryButtons button:active {
+  background-color: white;
+  color: #005042;
+}
+
+.categoryButtons button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.categoryButtons button:hover {
+  background-color: white;
+  color: #005042;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 24px rgba(0, 80, 66, 0.2);
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.iconButton:hover {
+  transform: scale(1.5);
+  opacity: 0.8;
+}
+
+.iconButton:active {
+  transform: scale(0.95);
+}
+
+.savedCategoryPill {
+  width: 330px;
+  height: 42px;
+  background-color: #005042;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  color: white;
+  font-weight: 700;
+}
+
+.savedCategoryPill img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.savedCategoryPill p {
+  margin: 0;
+}
+
+/* media query for chooseCategory */
+
+@media (max-width: 900px) {
+  .chooseCategorySection {
+    gap: 48px;
+  }
+
+  .chooseCategoryTextCard {
+    max-width: 430px;
+    width: 100%;
+    min-height: 430px;
+    height: auto;
+  }
+
+  .chooseCategoryTextContent h2 {
+    position: static;
+    margin-top: 90px;
+    margin-bottom: 28px;
+    font-size: 36px;
+  }
+
+  .chooseCategoryTextContent p {
+    position: static;
+    font-size: 16px;
+  }
+
+  .chooseCategoryFeatureLabel {
+    position: absolute;
+    top: 42px;
+    left: 48px;
   }
 }
