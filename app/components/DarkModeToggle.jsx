@@ -14,9 +14,9 @@ export default function DarkModeToggle() {
       aria-label="Toggle dark mode"
     >
       {darkMode ? (
-        <img src="/LightModeIcon.svg" alt="Sun" style={{ width: "25px" }} />
+        <img src="/LightModeIcon.svg" alt="Sun" />
       ) : (
-        <img src="/DarkModeIcon.svg" alt="Moon" style={{ width: "25px" }} />
+        <img src="/DarkModeIcon.svg" alt="Moon" />
       )}
     </button>
   );

@@ -97,6 +97,7 @@
 /* =========================
    DARK MODE TOGGLE
 ========================= */
+
 .darkToggle {
   position: fixed;
   top: 95px;
@@ -105,61 +106,117 @@
 
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  border: 2px solid transparent;
   padding: 0;
 
-  background: #fffbd3;
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(145deg, #fffef0, #f4f0cb);
+
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 18px rgba(0, 71, 56, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 
   opacity: 0;
   animation: buttonFadeIn 0.8s ease forwards;
   animation-delay: 0.2s;
 
-  transform-origin: center;
-
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
     background 0.3s ease,
-    border-color 0.3s ease;
+    box-shadow 0.25s ease,
+    transform 0.22s ease;
+}
+
+/* SOFT INNER GLOW */
+.darkToggle::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.8),
+    transparent 68%
+  );
+
+  pointer-events: none;
 }
 
 /* ICON */
 .darkToggle img {
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  width: 18px;
+  height: 18px;
+
+  display: block;
   object-fit: contain;
 
-  transition: transform 0.25s ease;
+  flex-shrink: 0;
+
+  transform: translateZ(0);
+
+  transition:
+    filter 0.3s ease,
+    opacity 0.25s ease;
 }
 
 /* HOVER */
 .darkToggle:hover {
-  transform: scale(1.2);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
-}
+  transform: translateY(-2px);
 
-/* ICON HOVER SCALE */
-.darkToggle:hover img {
-  transform: scale(1.15);
+  box-shadow:
+    0 10px 24px rgba(0, 71, 56, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 /* CLICK */
 .darkToggle:active {
-  transform: scale(0.9) rotate(15deg);
+  transform: scale(0.94);
 }
 
-/* DARK MODE */
+/* =========================
+   DARK MODE TOGGLE DARK STYLE
+========================= */
+
 :global(body.dark-mode) .darkToggle {
-  background: #183b2f;
-  border-color: #fffbd3;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 251, 211, 0.12),
+    rgba(255, 251, 211, 0.05)
+  );
+
+  border: 1px solid rgba(255, 251, 211, 0.12);
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+:global(body.dark-mode) .darkToggle::before {
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.12),
+    transparent 70%
+  );
+}
+
+:global(body.dark-mode) .darkToggle img {
+  filter: brightness(0) saturate(100%) invert(96%) sepia(12%) saturate(402%)
+    hue-rotate(7deg);
 }
 
 /* LOAD ANIMATION */
@@ -173,7 +230,9 @@
    CONTENT LAYOUT
 ========================= */
 .contentSection {
-  scroll-margin-top: 90px;
+  padding: 90px 0;
+  margin: 0;
+  scroll-margin-top: 50px;
 }
 
 .content {
@@ -181,16 +240,11 @@
   max-width: 1200px;
   width: 100%;
   margin: 85px auto;
-  padding: 0 40px;
 }
 
 /* =========================
    HERO SECTION
 ========================= */
-#section-hero {
-  min-height: auto;
-  padding: 40px 20px;
-}
 
 .heroCarousel {
   max-width: none;
@@ -217,17 +271,17 @@
    CAROUSEL SLIDE
 ========================= */
 .carouselSlide {
-  width: 1024px;
-  height: 420px;
+  width: 1100px;
+  height: 450px;
   max-width: 100%;
   min-height: 420px;
   max-height: 420px;
+
   display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
+  grid-template-columns: 40% 60%;
+  align-items: stretch;
   gap: 0;
-  padding: 70px;
-  text-align: left;
+  padding: 0;
 
   background: var(--canopy-mist);
   border: 1px solid rgba(0, 71, 56, 0.12);
@@ -243,21 +297,49 @@
     transform 0.25s ease;
 }
 
+.carouselImageWrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .carouselSlide:hover {
   transform: translateY(-5px);
   box-shadow: 0 24px 56px rgba(0, 71, 56, 0.1);
 }
 
+.reverseSlide {
+  direction: rtl;
+}
+
+.reverseSlide .carouselText {
+  direction: ltr;
+}
+
+.reverseSlide .carouselImageWrap {
+  direction: ltr;
+}
 /* =========================
    CAROUSEL CONTENT
 ========================= */
 .carouselText {
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: center; /* ✅ vertical center */
-  align-items: flex-start; /* ✅ keep text LEFT */
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 56px 48px;
+
   position: relative;
-  height: 100%;
   z-index: 2;
 }
 
@@ -289,7 +371,6 @@
   flex-shrink: 0;
   background-color: rgba(0, 0, 0, 0);
   position: absolute;
-  
 
   color: #004738;
   font-size: 3rem;
@@ -333,13 +414,17 @@
 ========================= */
 .carouselProgress {
   position: absolute;
-  left: 56px;
-  right: 56px;
+
+  right: 48px;
   bottom: 40px;
+
+  width: calc(60% - 96px);
   height: 6px;
+
   background: rgba(0, 71, 56, 0.18);
   border-radius: 999px;
   overflow: hidden;
+
   z-index: 5;
 }
 
@@ -349,14 +434,26 @@
   background: #004738;
   border-radius: 999px;
   transform-origin: left;
-  animation: carouselTimer 10s linear forwards;
+}
+
+.timerA {
+  animation: carouselTimerA 10s linear forwards;
+}
+
+.timerB {
+  animation: carouselTimerB 10s linear forwards;
 }
 
 .carouselProgressBar.paused {
   animation-play-state: paused;
 }
 
-@keyframes carouselTimer {
+.reverseSlide .carouselProgress {
+  left: 48px;
+  right: auto;
+}
+
+@keyframes carouselTimerA {
   from {
     transform: scaleX(0);
   }
@@ -366,15 +463,14 @@
   }
 }
 
-/* =========================
-   CAROUSEL TIMER - DARK MODE
-========================= */
-:global(body.dark-mode) .carouselProgress {
-  background: rgba(255, 251, 211, 0.22);
-}
+@keyframes carouselTimerB {
+  from {
+    transform: scaleX(0);
+  }
 
-:global(body.dark-mode) .carouselProgressBar {
-  background: #fffbd3;
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* =========================
@@ -426,44 +522,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* =========================
-   DARK MODE
-========================= */
-:global(body.dark-mode) .heroPlaceholder {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-
-/* =========================
-   DARK MODE STYLES
-========================= */
-:global(body.dark-mode) .carouselSlide {
-  background: linear-gradient(135deg, #183b2f, #081c15);
-  border-color: rgba(255, 251, 211, 0.18);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-
-:global(body.dark-mode) .carouselText h1,
-:global(body.dark-mode) .carouselText p {
-  color: #fffbd3;
-}
-
-:global(body.dark-mode) .carouselArrow {
-  background: (0, 0, 0, 0);
-}
-
-:global(body.dark-mode) .arrow {
-  color: #fffbd3;
-}
-
-:global(body.dark-mode) .backToTop {
-  background: #183b2f;
-  border: 2px solid #fffbd3;
-}
-
-:global(body.dark-mode) .heroCarousel:hover .carouselSlide {
-  background: linear-gradient(135deg, #204c3a, #0b241c);
 }
 
 /* =========================
@@ -548,6 +606,263 @@
   color: var(--pine-teal);
 }
 
+/* =========================
+   POLISHED DARK MODE
+========================= */
+
+:global(body.dark-mode) {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(232, 245, 176, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(180deg, #081c15 0%, #0b241c 45%, #061611 100%);
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .page {
+  --bg: #081c15;
+  --text-primary: #fffbd3;
+  --canopy-mist: #183b2f;
+  --pine-teal: #fffbd3;
+  --forest-floor: #dbe9b4;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(232, 245, 176, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #081c15 0%, #0b241c 55%, #061611 100%);
+  color: #fffbd3;
+}
+
+/* NAVBAR */
+:global(body.dark-mode) .navbar {
+  background: rgba(8, 28, 21);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 251, 211, 0.12);
+}
+
+:global(body.dark-mode) .navLink:hover {
+  background: rgba(255, 251, 211, 0.12);
+  color: #fffbd3;
+}
+
+/* TOGGLE */
+:global(body.dark-mode) .darkToggle {
+  background: rgba(255, 251, 211, 0.12);
+  border: 1px solid rgba(255, 251, 211, 0.45);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* CAROUSEL */
+:global(body.dark-mode) .carouselSlide {
+  background: linear-gradient(
+    135deg,
+    rgba(24, 59, 47, 0.96),
+    rgba(8, 28, 21, 0.98)
+  );
+  border: 1px solid rgba(255, 251, 211, 0.16);
+}
+
+:global(body.dark-mode) .carouselText h1,
+:global(body.dark-mode) .carouselText p {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .carouselProgress {
+  background: rgba(255, 251, 211, 0.18);
+}
+
+:global(body.dark-mode) .carouselProgressBar {
+  background: linear-gradient(90deg, #fffbd3, #d6ec8f);
+}
+
+:global(body.dark-mode) .arrow {
+  color: #fffbd3;
+}
+
+/* DARK MODE — FEATURE DEMO */
+
+:global(body.dark-mode) .budgetPreviewCard {
+  background: linear-gradient(180deg, #1f7a5c 0%, #183b2f 100%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 22px 55px rgba(0, 0, 0, 0.35);
+
+  color: #b8cc8e;
+}
+
+/* TOP TABS */
+:global(body.dark-mode) .appTopTab {
+  color: rgba(184, 204, 142, 0.7);
+}
+
+:global(body.dark-mode) .appTopTabActive {
+  color: #eef5d6;
+}
+
+:global(body.dark-mode) .appTabLine {
+  background: #d6ec8f;
+}
+
+/* DAILY / MONTHLY SWITCH */
+:global(body.dark-mode) .budgetSwitch {
+  background: rgba(6, 22, 17, 0.9);
+}
+
+:global(body.dark-mode) .switchButton {
+  color: rgba(184, 204, 142, 0.72);
+}
+
+:global(body.dark-mode) .switchButtonActive {
+  color: #eef5d6;
+}
+
+:global(body.dark-mode) .switchThumb {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.06)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    inset 0 1px 10px rgba(255, 255, 255, 0.1),
+    0 8px 18px rgba(0, 0, 0, 0.24);
+}
+
+/* LABELS */
+:global(body.dark-mode) .fieldGroup label,
+:global(body.dark-mode) .fullField label {
+  color: #b8cc8e;
+}
+
+/* INPUTS */
+:global(body.dark-mode) .previewInput {
+  background: #eef5d6;
+  color: #183b2f;
+}
+
+:global(body.dark-mode) .previewInput::placeholder {
+  color: rgba(24, 59, 47, 0.6);
+}
+
+:global(body.dark-mode) .previewInput:focus {
+  box-shadow: 0 0 0 2px rgba(214, 236, 143, 0.5);
+}
+
+/* CATEGORY SELECT */
+:global(body.dark-mode) .categorySelect {
+  background: #eef5d6;
+  color: #183b2f;
+}
+
+:global(body.dark-mode) .selectArrow {
+  color: #183b2f;
+}
+
+/* DROPDOWN */
+:global(body.dark-mode) .categoryDropdown {
+  background: #183b2f;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.4);
+}
+
+:global(body.dark-mode) .categoryOption {
+  background: rgba(214, 236, 143, 0.12);
+  border: 1px solid rgba(214, 236, 143, 0.28);
+
+  color: #d6ec8f;
+}
+
+:global(body.dark-mode) .categoryOption:hover {
+  background: rgba(214, 236, 143, 0.22);
+}
+
+/* SAVE BUTTON */
+:global(body.dark-mode) .previewSaveButton {
+  background: #061611;
+  color: #d6ec8f;
+}
+
+:global(body.dark-mode) .previewSaveButton:hover {
+  background: #0b241c;
+}
+
+:global(body.dark-mode) .previewSaveButtonSaved {
+  background: #d6ec8f;
+  color: #183b2f;
+}
+
+:global(body.dark-mode) .categorySelect span {
+  color: #183b2f;
+}
+
+/* SAVED BUTTON HOVER TEXT */
+:global(body.dark-mode) .previewSaveButtonSaved:hover {
+  color: #d6ec8f;
+}
+
+/* CTA */
+:global(body.dark-mode) .ctaSans {
+  color: #c8c39a;
+}
+
+:global(body.dark-mode) .ctaSerif {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .ctaMessageSection {
+  background: transparent;
+}
+
+/* ROOTS / TEAM */
+:global(body.dark-mode) .teamPanelSection {
+  background: transparent;
+}
+
+:global(body.dark-mode) .teamPanelRight {
+  background: rgba(24, 59, 47, 0.5);
+  border-top: 1px solid rgba(255, 251, 211, 0.14);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+:global(body.dark-mode) .teamPanelCard {
+  background: rgba(8, 28, 21, 0.72);
+  color: #fffbd3;
+  border-bottom: 1px solid rgba(255, 251, 211, 0.12);
+}
+
+:global(body.dark-mode) .teamPanelCard:hover {
+  background: #183b2f;
+  color: #fffbd3;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+/* FOOTER + BACK TO TOP */
+:global(body.dark-mode) .siteFooter {
+  background: rgba(8, 28, 21, 0.95);
+  border-top: 1px solid rgba(255, 251, 211, 0.12);
+}
+
+:global(body.dark-mode) .footerLogo,
+:global(body.dark-mode) .footerCopy {
+  color: #fffbd3;
+}
+
+:global(body.dark-mode) .backToTop {
+  background: rgba(255, 251, 211, 0.12);
+  color: #fffbd3;
+  border: 1px solid rgba(255, 251, 211, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
 
 /* =========================
 HYE'S PART
@@ -692,7 +1007,7 @@ HYE'S PART
 .featureOneGrid {
   width: min(1100px, calc(100% - 96px));
   margin: 0 auto;
-  padding: 150px 0 130px;
+  padding: 0;
 
   display: grid;
   grid-template-columns: 0.7fr 1.08fr;
@@ -1194,6 +1509,10 @@ HYE'S PART
   color: var(--pine-teal);
 }
 
+.previewSaveButtonSaved:hover {
+  color: #ffffff;
+}
+
 .previewSaveButton:hover {
   background: var(--forest-floor);
   transform: translateY(-2px);
@@ -1302,8 +1621,10 @@ HYE'S PART
 
 .ctaMessageSection {
   width: 100%;
-  min-height: 75vh;
-  padding: 120px 48px 150px;
+
+  padding: 0;
+  margin: 0;
+  min-height: auto;
 
   display: flex;
   align-items: center;
@@ -1314,8 +1635,8 @@ HYE'S PART
 }
 
 .ctaMessage {
-  max-width: 1200px;
-  margin: 0;
+  width: min(1100px, calc(100% - 96px));
+  margin: 0 auto;
 
   color: var(--pine-teal);
 }
@@ -1394,7 +1715,7 @@ HYE'S PART
 
 .teamPanelSection {
   width: 100%;
-  padding: 120px 48px 180px;
+  padding: 0;
   background: var(--bg);
   color: var(--pine-teal);
 }
@@ -1404,7 +1725,7 @@ HYE'S PART
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.80fr 1.20fr;
+  grid-template-columns: 0.7fr 1.3fr;
   gap: 72px;
   align-items: start;
 }
