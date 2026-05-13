@@ -6,26 +6,27 @@ import styles from "../page.module.css";
 
 const icons = [
   "/icons/food.svg",
-  "/icons/home.svg",
-  "/icons/scissors.svg",
-  "/icons/heart.svg",
-  "/icons/shopping.svg",
-  "/icons/game.svg",
-  "/icons/car.svg",
-  "/icons/coffee.svg",
-  "/icons/phone.svg",
+  "/icons/baby.svg",
   "/icons/bike.svg",
-  "/icons/health.svg",
-  "/icons/education.svg",
+  "/icons/broom.svg",
+  "/icons/cake.svg",
+  "/icons/cup.svg",
+  "/icons/drinks.svg",
   "/icons/gift.svg",
-  "/icons/bills.svg",
-  "/icons/travel.svg",
-  "/icons/more.svg",
+  "/icons/heart.svg",
+  "/icons/medical.svg",
+  "/icons/music.svg",
+  "/icons/palette.svg",
+  "/icons/scissors.svg",
+  "/icons/train.svg",
+  "/icons/computer.svg",
+  "/icons/tooth.svg",
 ];
 
+
 export default function ChooseCategory() {
-  const [categoryName, setCategoryName] = useState("Food");
-  const [selectedIcon, setSelectedIcon] = useState("/icons/food.svg");
+  const [categoryName, setCategoryName] = useState("");
+  const [selectedIcon, setSelectedIcon] = useState("");
   const [savedCategory, setSavedCategory] = useState(null);
 
   function handleSave() {
@@ -45,6 +46,7 @@ export default function ChooseCategory() {
 
   return (
     <section id="Choose-Category" className={styles.chooseCategorySection}>
+        <p className={styles.chooseCategoryNumber}>02</p>
       <div className={styles.chooseCategoryTextCard}>
         <p className={styles.chooseCategoryFeatureLabel}>FEATURE 02</p>
 
