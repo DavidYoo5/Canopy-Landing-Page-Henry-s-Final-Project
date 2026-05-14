@@ -13,6 +13,9 @@ import InsightsSection from "./components/InsightsSection";
 import ChooseCategory from "./components/ChooseCategory";
 import GrowthLevels from "./components/GrowthLevels";
 import TreeGallery from "./components/TreeGallery";
+import HeroSection from "./components/HeroSection";
+import CoreValue from "./components/CoreValue";
+import VideoSection from "./components/VideoSection";
 
 export default function Home() {
   return (
@@ -61,17 +64,17 @@ export default function Home() {
 
       <DarkModeToggle />
 
+      <section id="section-Home">
+        <HeroSection></HeroSection>
+      </section>
+
       {/* CONTENT */}
+
+      <section id="section-logo" className={styles.contentSection}>
+        <CoreValue></CoreValue>
+      </section>
+
       <section className={styles.content}>
-        <section id="section-Home" className={styles.contentSection}></section>
-
-        <section id="section-logo" className={styles.contentSection}></section>
-
-        <section
-          id="section-experience-caopy-heading"
-          className={styles.contentSection}
-        ></section>
-
         <section id="section-Demo" className={styles.contentSection}>
           <h3 className={styles.interactiveAppHeading}>
             Interactive app features
@@ -138,6 +141,10 @@ export default function Home() {
 
         <section id="section-Roots" className={styles.contentSection}>
           <TeamSection />
+        </section>
+
+        <section id="section-Video" className={styles.contentSection}>
+          <VideoSection />
         </section>
       </section>
 

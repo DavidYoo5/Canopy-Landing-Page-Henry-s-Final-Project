@@ -188,37 +188,6 @@
   transform: scale(0.94);
 }
 
-/* =========================
-   DARK MODE TOGGLE DARK STYLE
-========================= */
-
-:global(body.dark-mode) .darkToggle {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 251, 211, 0.12),
-    rgba(255, 251, 211, 0.05)
-  );
-
-  border: 1px solid rgba(255, 251, 211, 0.12);
-
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-:global(body.dark-mode) .darkToggle::before {
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 255, 255, 0.12),
-    transparent 70%
-  );
-}
-
-:global(body.dark-mode) .darkToggle img {
-  filter: brightness(0) saturate(100%) invert(96%) sepia(12%) saturate(402%)
-    hue-rotate(7deg);
-}
-
 /* LOAD ANIMATION */
 @keyframes buttonFadeIn {
   to {
@@ -660,11 +629,20 @@
 
 /* TOGGLE */
 :global(body.dark-mode) .darkToggle {
-  background: rgba(255, 251, 211, 0.12);
+  background: #1b2e1b;
+  color: #fffbd3;
+
   border: 1px solid rgba(255, 251, 211, 0.45);
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+:global(body.dark-mode) .darkToggle::before {
+  display: none;
+}
+
+:global(body.dark-mode) .darkToggle::before {
+  background: none;
 }
 
 /* CAROUSEL */
@@ -2779,4 +2757,125 @@ HYE'S SECTION
 
 .savedCategoryPill p {
   margin: 0;
+}
+
+/* =========================
+   ALICE'S STYLES
+========================= */
+
+/* =========================
+   Hero - triggered by scroll
+========================= */
+/* Outer wrapper — tall enough for all slides to scroll through */
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Base panel shared by all three phases */
+.panel {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("/heroBg.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Above the section — sits at the top of the wrapper */
+.panelBefore {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Scrolling through — locked to the viewport */
+.panelFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Past the section — anchored to the bottom of the wrapper */
+.panelAfter {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* =========================
+   Video
+========================= */
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.landingVideo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.videoSection {
+  width: 100%;
+  padding: 90px 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.videoContainer {
+  width: min(1100px, calc(100% - 100px));
+  aspect-ratio: 16 / 9;
+
+  border-radius: 36px;
+  overflow: hidden;
+
+  position: relative;
+
+  background: #004738;
+
+  box-shadow: 0 24px 56px rgba(0, 71, 56, 0.14);
+}
+
+.landingVideo {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+}
+
+/* DARK MODE */
+
+:global(body.dark-mode) .videoContainer {
+  background: #081c15;
+
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
 }
