@@ -11,6 +11,8 @@ import FeatureBudgetDemo from "./components/FeatureBudgetDemo";
 import TeamSection from "./components/TeamSection";
 import InsightsSection from "./components/InsightsSection";
 import ChooseCategory from "./components/ChooseCategory";
+import GrowthLevels from "./components/GrowthLevels";
+import TreeGallery from "./components/TreeGallery";
 
 export default function Home() {
   return (
@@ -101,7 +103,13 @@ export default function Home() {
         <section
           id="section-grow-savings-tree"
           className={styles.contentSection}
-        ></section>
+        >
+          <GrowthLevels />
+        </section>
+
+        <section id="section-tree-gallery" className={styles.contentSection}>
+          <TreeGallery />
+        </section>
 
         <section id="section-Branding" className={styles.contentSection}>
           {/* RIGHT CAROUSEL */}

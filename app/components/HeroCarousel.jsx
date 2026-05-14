@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../page.module.css";
 
 const slides = [
@@ -32,73 +32,48 @@ export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState("right");
   const [isPaused, setIsPaused] = useState(false);
-  const [timerReset, setTimerReset] = useState(false);
+  const [timerKey, setTimerKey] = useState(0);
 
   const carouselRef = useRef(null);
-  const hasResetOnView = useRef(false);
+  const wasInView = useRef(false);
 
-  /* =========================
-     RESET TIMER
-  ========================= */
-  const resetTimer = () => {
-    setTimerReset((prev) => !prev);
-  };
+  function resetTimer() {
+    setTimerKey((prev) => prev + 1);
+  }
 
-  /* =========================
-     CHANGE SLIDE
-  ========================= */
-  const goToSlide = (getNextSlide, newDirection) => {
+  function goToSlide(nextSlide, newDirection) {
     setDirection(newDirection);
+    setCurrentSlide(nextSlide);
+    resetTimer();
+  }
 
-    setCurrentSlide((prev) => {
-      const next = getNextSlide(prev);
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % slides.length, "right");
+  }
 
-      resetTimer();
+  function prevSlide() {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length, "left");
+  }
 
-      return next;
-    });
-  };
-
-  /* =========================
-     AUTO SLIDE
-  ========================= */
   useEffect(() => {
-    if (isPaused) return;
+    slides.forEach((slide) => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, []);
 
-    const interval = setInterval(() => {
-      goToSlide((prev) => (prev + 1) % slides.length, "right");
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [isPaused, timerReset]);
-
-  /* =========================
-     NEXT / PREV
-  ========================= */
-  const nextSlide = () => {
-    goToSlide((prev) => (prev + 1) % slides.length, "right");
-  };
-
-  const prevSlide = () => {
-    goToSlide((prev) => (prev - 1 + slides.length) % slides.length, "left");
-  };
-
-  /* =========================
-     RESET ON SCROLL BACK
-  ========================= */
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasResetOnView.current) {
-          hasResetOnView.current = true;
-
+        if (entry.isIntersecting && !wasInView.current) {
+          wasInView.current = true;
           setCurrentSlide(0);
           setDirection("right");
           resetTimer();
         }
 
         if (!entry.isIntersecting) {
-          hasResetOnView.current = false;
+          wasInView.current = false;
         }
       },
       {
@@ -114,61 +89,70 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div
-      ref={carouselRef}
-      className={styles.heroCarousel}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* LEFT ARROW */}
-      <button
-        onClick={prevSlide}
-        className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
-        type="button"
-      >
-        <span className={styles.arrow}>‹</span>
-      </button>
+    <div>
+      <h2 className={styles.headingCarousel}>The Brand</h2>
+      <p className={styles.carouselDescription}>
+        <em>Canopy comes from the forest layer above.</em>
+      </p>
 
-      {/* SLIDE */}
       <div
-        key={`${currentSlide}-${timerReset}`}
-        className={`${styles.carouselSlide} ${
-          direction === "right" ? styles.slideRight : styles.slideLeft
-        } ${slides[currentSlide].reverse ? styles.reverseSlide : ""}`}
+        ref={carouselRef}
+        className={styles.heroCarousel}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
-        {/* IMAGE */}
-        <div className={styles.carouselImageWrap}>
-          <img
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].title}
-            className={styles.carouselImage}
-          />
+        <button
+          onClick={prevSlide}
+          className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
+          type="button"
+        >
+          <span className={styles.arrow}>‹</span>
+        </button>
+
+        <div
+          key={currentSlide}
+          className={`${styles.carouselSlide} ${
+            direction === "right" ? styles.slideRight : styles.slideLeft
+          } ${slides[currentSlide].reverse ? styles.reverseSlide : ""}`}
+        >
+          <div className={styles.carouselImageWrap}>
+            <img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
+              className={styles.carouselImage}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div className={styles.carouselText}>
+            <h1>{slides[currentSlide].title}</h1>
+            <p>{slides[currentSlide].text}</p>
+          </div>
+
+          <div className={styles.carouselProgress}>
+            <div
+              key={timerKey}
+              className={`${styles.carouselProgressBar} ${
+                isPaused ? styles.paused : ""
+              }`}
+              onAnimationEnd={() => {
+                if (!isPaused) {
+                  nextSlide();
+                }
+              }}
+            />
+          </div>
         </div>
 
-        {/* TEXT */}
-        <div className={styles.carouselText}>
-          <h1>{slides[currentSlide].title}</h1>
-          <p>{slides[currentSlide].text}</p>
-        </div>
-
-        {/* TIMER */}
-        <div className={styles.carouselProgress}>
-          <div
-            className={`${styles.carouselProgressBar} ${
-              timerReset ? styles.timerA : styles.timerB
-            } ${isPaused ? styles.paused : ""}`}
-          />
-        </div>
+        <button
+          onClick={nextSlide}
+          className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
+          type="button"
+        >
+          <span className={styles.arrow}>›</span>
+        </button>
       </div>
-
-      {/* RIGHT ARROW */}
-      <button
-        onClick={nextSlide}
-        className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
-        type="button"
-      >
-        <span className={styles.arrow}>›</span>
-      </button>
     </div>
   );
 }
