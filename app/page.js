@@ -6,6 +6,9 @@ import styles from "./page.module.css";
 import BackToTop from "./components/BackToTop";
 import DarkModeToggle from "./components/DarkModeToggle";
 import HeroCarousel from "./components/HeroCarousel";
+import HeroSection from "./components/HeroSection";
+import CoreValue from "./components/CoreValue";
+import VideoSection from "./components/VideoSection";
 
 export default function Home() {
   return (
@@ -63,6 +66,15 @@ export default function Home() {
       </nav>
 
       <DarkModeToggle />
+
+      {/* Hero */}
+      <HeroSection></HeroSection>
+
+      {/* Core Value */}
+      <CoreValue></CoreValue>
+
+      {/* Video Section */}
+      <VideoSection></VideoSection>
 
       {/* CONTENT */}
       <section className={styles.content}>

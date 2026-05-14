@@ -42,7 +42,7 @@
 /* =========================
    TYPOGRAPHY
 ========================= */
-.pageTitle {
+/* .pageTitle {
   font-family: var(--font-dm-serif), serif;
   color: var(--pine-teal);
   text-align: center;
@@ -59,7 +59,7 @@
 
 .page a {
   text-decoration: none;
-}
+} */
 
 /* =========================
    NAVBAR
@@ -562,4 +562,85 @@
 .footerCopy {
   font-size: 0.8rem;
   color: var(--pine-teal);
+}
+
+
+
+/* =========================
+   Hero - triggered by scroll
+========================= */
+/* Outer wrapper — tall enough for all slides to scroll through */
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Base panel shared by all three phases */
+.panel {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  
+
+  background-image: url('/heroBg.jpeg');
+  background-size: cover;
+  background-position: center;
+
+}
+
+/* Above the section — sits at the top of the wrapper */
+.panelBefore {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Scrolling through — locked to the viewport */
+.panelFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Past the section — anchored to the bottom of the wrapper */
+.panelAfter {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* =========================
+   Video
+========================= */
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.landingVideo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  pointer-events: none;
+  font-weight: bold;
 }
