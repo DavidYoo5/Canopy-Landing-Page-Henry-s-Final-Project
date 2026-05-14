@@ -2,34 +2,34 @@ import styles from "@/app/page.module.css";
 
 const teamMembers = [
   {
-    name: "Hye Soo",
-    role: "UX/UI Designer",
+    name: "Hye Soo Shim",
+    role: "UX Designer",
     contribution:
-      "Designed the feature flow, visual direction, and interactive landing page experience for Canopy.",
+      "Designed and tested the budgeting flow to make expense tracking easier to use.",
   },
   {
-    name: "Member 2",
-    role: "Frontend Developer",
+    name: "Alice Chang",
+    role: "UI Designer",
     contribution:
-      "Built interactive app previews and helped translate the design system into React components.",
+      "Created visual layouts, buttons, cards, and interface components for a clear user experience.",
   },
   {
-    name: "Member 3",
-    role: "Research Lead",
-    contribution:
-      "Explored user needs, budgeting pain points, and helped shape the problem direction.",
-  },
-  {
-    name: "Member 4",
+    name: "Jennie Yu",
     role: "Brand Designer",
     contribution:
-      "Created the Canopy mood, colors, visual identity, and growth-inspired brand language.",
+      "Created Canopy mood, colors, visual identity, and growth-inspired brand language.",
   },
   {
-    name: "Member 5",
-    role: "Usability Tester",
+    name: "Gurjot Hundal",
+    role: "Product Designer",
     contribution:
-      "Tested key interactions and helped refine the app preview, feedback, and user flow.",
+      "Explored user needs, budgeting pain points, and helped shape problem direction.",
+  },
+  {
+    name: "David Yoo",
+    role: "Project Manager",
+    contribution:
+      "Organized the team workflow while testing key interactions and helping refine Canopy’s user flow.",
   },
 ];
 

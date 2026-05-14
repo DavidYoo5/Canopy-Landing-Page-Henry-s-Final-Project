@@ -2009,7 +2009,7 @@ HYE'S SECTION
   margin: 0;
 
   font-family: "DM Serif Display", serif;
-  font-size: clamp(42px, 5vw, 55px);
+  font-size: clamp(35px, 5vw, 35px);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.045em;
