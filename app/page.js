@@ -153,7 +153,7 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div className={styles.footerLogo}>
             <img
-              src="/Logo green.svg"
+              src="/Logo_Green.svg"
               alt="Canopy logo"
               className={styles.navLogoImg}
             />
