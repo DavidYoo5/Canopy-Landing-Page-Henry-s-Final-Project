@@ -1824,7 +1824,7 @@ HYE'S SECTION
 .teamPanelSection {
   width: 100%;
   padding: 0;
-  background: var(--bg);
+  background: transparent;
   color: var(--pine-teal);
 }
 

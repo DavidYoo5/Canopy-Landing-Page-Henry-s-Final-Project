@@ -57,8 +57,8 @@ export default function HeroCarousel() {
 
   useEffect(() => {
     slides.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.image;
+      const image = new Image();
+      image.src = slide.image;
     });
   }, []);
 
@@ -121,7 +121,8 @@ export default function HeroCarousel() {
               alt={slides[currentSlide].title}
               className={styles.carouselImage}
               loading="eager"
-              decoding="async"
+              decoding="sync"
+              fetchPriority="high"
             />
           </div>
 

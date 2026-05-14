@@ -35,12 +35,17 @@ export default function InsightChart(props) {
         >
           <div key={selectedCategory.id} className={styles.chartCenterContent}>
             <p
-              className={styles.chartCategory} style={{ color: selectedCategory.textColor }}>
-                {selectedCategory.name}
+              className={styles.chartCategory}
+              style={{ color: selectedCategory.textColor }}
+            >
+              {selectedCategory.name}
             </p>
 
             <p
-                className={styles.chartPrice} style={{ color: selectedCategory.textColor }}>{selectedCategory.price}
+              className={styles.chartPrice}
+              style={{ color: selectedCategory.textColor }}
+            >
+              {selectedCategory.price}
             </p>
           </div>
         </div>

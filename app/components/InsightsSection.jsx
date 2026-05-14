@@ -15,6 +15,7 @@ export default function InsightsSection() {
       icon: "/food-categoryicon.svg",
       iconColor: "#004738",
       sectionColor: "#EFC71D",
+      textColor: "#004738",
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ export default function InsightsSection() {
       icon: "/drink-category-icon.svg",
       iconColor: "#004738",
       sectionColor: "#CCEA9D",
+      textColor: "#004738",
     },
     {
       id: 3,
@@ -31,6 +33,7 @@ export default function InsightsSection() {
       icon: "/shopping-cetegory-icon.svg",
       iconColor: "#FFFBD3",
       sectionColor: "#8DAB59",
+      textColor: "#FFFBD3",
     },
     {
       id: 4,
@@ -57,6 +60,7 @@ export default function InsightsSection() {
       icon: "/transportation-category-icon.svg",
       iconColor: "#004738",
       sectionColor: "#FFFBD3",
+      textColor: "#004738",
     },
   ];
 
