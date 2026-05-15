@@ -2021,36 +2021,12 @@ HYE'S SECTION
 
   transform: translateY(-4px);
 
+  background: #d6ec8f;
+  color: var(--pine-teal);
+
   box-shadow:
     0 24px 70px rgba(0, 71, 56, 0.13),
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
-
-/* Canopy colors appear only on hover */
-
-.teamPanelCard:nth-child(1):hover {
-  background: var(--canopy-mist);
-  color: var(--pine-teal);
-}
-
-.teamPanelCard:nth-child(2):hover {
-  background: #d6ec8f;
-  color: var(--pine-teal);
-}
-
-.teamPanelCard:nth-child(3):hover {
-  background: #eef5d6;
-  color: var(--pine-teal);
-}
-
-.teamPanelCard:nth-child(4):hover {
-  background: var(--pine-teal);
-  color: var(--canopy-mist);
-}
-
-.teamPanelCard:nth-child(5):hover {
-  background: var(--forest-floor);
-  color: var(--canopy-mist);
 }
 
 /* =========================
