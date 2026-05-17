@@ -25,7 +25,7 @@ export default function Home() {
         <div className={styles.navInner}>
           <a href="/" className={styles.navLogo}>
             <img
-              src="/Logo.svg"
+              src="/YELLOW_LOGO.svg"
               alt="Canopy logo"
               className={styles.navLogoImg}
             />
@@ -153,7 +153,7 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div className={styles.footerLogo}>
             <img
-              src="/Logo_Green.svg"
+              src="/LogoGreen.svg"
               alt="Canopy logo"
               className={styles.navLogoImg}
             />
